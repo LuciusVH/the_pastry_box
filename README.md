@@ -199,7 +199,7 @@ You can find the deployed site [here](). **[LINK TO BE UPDATED]**
 
 ### Media
 
-- 
+- The hero images are both from Unsplash, [landscape](https://unsplash.com/photos/uxCtCB_yL-M) & [portrait](https://unsplash.com/photos/Gx_vsiMRgzk).
 
 ### Acknowledgements
 
