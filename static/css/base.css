@@ -1,12 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Style+Script&display=swap');
 
-/* BASE */
+/* ______ BASE ______ */
 :root {
-  --font-title: 'Merriweather', 'sans-serif';
-  --font-body: 'Style Script', 'sans-serif';
+  --font-title: 'Style Script', 'sans-serif';
+  --font-body: 'Merriweather', 'sans-serif';
   --color-primary: hsla(45, 100%, 68%, 1);
   --color-background: hsla(34, 54%, 97%, 1);
   --color-text: hsl(0, 0%, 20%);
+  --color-grey: hsl(0, 0%, 43.9%);
   --navbar-height: 76px;
 }
 
@@ -17,14 +18,107 @@ body {
   font-size: 17px;
 }
 
-/* NAVBAR */
+.text-black {
+  color: var(--color-text) !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-title);
+}
+
+/* ______ INPUTS ______ */
+.input-group {
+  border: 1px solid var(--color-grey) !important;
+  border-radius: 8px;
+}
+
+.input-group input {
+  border: none;
+  border-right-color: var(--color-grey);
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.form-control:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 0.2rem hsla(45, 100%, 68%, 0.75);
+}
 
 
-/* HERO SECTION */
+/* ______ BUTTONS ______ */
+.btn-cta {
+  background-color: var(--color-primary);
+}
+
+.btn-cta:focus {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 0.2rem hsla(45, 100%, 68%, 0.75);
+}
+
+/* ______ NAVBAR ______ */
+.logo {
+  color: var(--color-primary);
+  text-shadow: 0px 0px 4px black;
+  margin: 0 .5rem;
+}
+
+nav {
+  background-color: var(--color-background);
+  padding: 0;
+}
+
+nav form {
+  width: -webkit-fill-available;
+  width: -moz-available;
+  width: stretch;
+}
+
+.input-group .btn-cta {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.fa-caret-down,
+.fa-caret-up {
+  margin-left: 4px;
+}
+
+.fa-cart-shopping {
+  margin-right: 8px;
+}
+
+.cart {
+  border: 2px solid var(--color-primary);
+  border-radius: 8px;
+  margin-left: 1rem;
+}
+
+.list-inline-item:not(:last-child) {
+  margin-right: 0;
+}
+
+.navbar-divider {
+  font-size: 1.5rem;
+  font-weight: lighter;
+  position: relative;
+  top: 3px;
+}
+
+
+/* ______ HERO SECTION ______ */
 .hero-img {
-  height: calc(100vh - var(--navbar-height));
   padding: 0;
   margin: 0;
+  margin-top: var(--navbar-height);
+  height: calc(100vh - var(--navbar-height));
   position: relative;
 }
 
@@ -49,7 +143,7 @@ body {
   transform: translate(-50%, -50%);
   width: 90%;
   text-align: center;
-  font-size: 4vh;
+  font-size: 3vh;
   color: white;
   text-shadow: 0px 0px 4px black;
 }
@@ -57,5 +151,5 @@ body {
 .hero-text h1 {
   font-size: 6vh;
   color: var(--color-primary);
-  margin-bottom: ;
+  margin-bottom: 1.5rem;
 }
