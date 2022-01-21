@@ -1,0 +1,68 @@
+{% load static %}
+
+<div id="mobile-navbar" class="navbar navbar-expand-xl navbar-light bg-light d-xl-none">
+  <div class="toggle-logo">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a href="{% url 'home' %}" class="nav-link">
+      <h2 class="logo mt-1">The Pastry Box</h2>
+    </a>
+  </div>
+  <div class="account-cart">
+    <button class="navbar-toggler account nav-link text-black" type="button" data-bs-toggle="collapse"
+      data-bs-target="#navbarAccountDropdown" aria-controls="navbarAccountDropdown" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <i class="fa-solid fa-user"></i>
+    </button>
+    <a class="cart nav-link text-black">
+      <i class="fas fa-cart-shopping"></i>
+    </a>
+  </div>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav me-auto my-2 mb-lg-0">
+      <li class="nav-item">
+        <a class="nav-link text-black" href="#">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-black" href="#">Subscription</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link text-black dropdown-toggle" href="#" id="dropdown-products-mobile" role="button"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          Products
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="dropdown-products-mobile">
+          <li><a class="dropdown-item nav-link text-black" href="#">Products Cat 1</a></li>
+        </ul>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-black" href="#">Recipes</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-black" href="#">Activate my Subscription</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-black" href="#">Contact Us</a>
+      </li>
+    </ul>
+    <form id="search-bar-mobile" method="GET" action="">
+      <div class="input-group">
+        <input class="form-control" type="text" name="q" placeholder="Search">
+        <div class="btn-cta">
+          <button class="btn" type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="collapse navbar-collapse mt-2" id="navbarAccountDropdown">
+    <ul class="navbar-nav me-auto my-2 mb-lg-0 justify-content-center">
+      {% include 'includes/signin-up_form.html' %}
+    </ul>
+  </div>
+</div>
+
+<script src="{% static 'js/navbar-togglers.js' %}"></script>
