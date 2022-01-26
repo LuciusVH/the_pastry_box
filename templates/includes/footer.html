@@ -1,0 +1,191 @@
+<div class="row footer-wrapper">
+  <hr class="dropdown-divider">
+  <div class="footer-block d-flex-column d-xl-flex p-0">
+    <div class="d-flex-column d-md-flex col-12 col-xl-9">
+      <!--- About Us -->
+      <div class="footer-block-item footer-block-item-aboutus col-12 col-md-7 pe-md-3">
+        <button class="footer-block-item-title p-2 w-100 d-flex justify-content-between h5"
+          data-target="#footer-accordion-item1">
+          About Us
+          <span class="fa-solid fa-plus d-md-none"></span>
+          <span class="fa-solid fa-minus"></span>
+        </button>
+        <div id="footer-accordion-item1" class="footer-block-item-content p-2 pt-0">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit ad quasi distinctio numquam aut
+            dolorem sapiente qui eligendi, omnis necessitatibus. Numquam in necessitatibus aspernatur corrupti esse quod
+            natus ipsum? Animi. <br>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit ad quasi distinctio numquam aut
+            dolorem
+            sapiente qui eligendi, omnis necessitatibus.
+          </p>
+        </div>
+      </div>
+      <!-- Useful links -->
+      <div class="footer-block-item footer-block-item-usefullinks col-12 col-md-5 ps-md-3">
+        <button class="footer-block-item-title p-2 w-100 d-flex justify-content-between h5"
+          data-target="#footer-accordion-item2">
+          Useful Links
+          <span class="fa-solid fa-plus d-md-none"></span>
+          <span class="fa-solid fa-minus"></span>
+        </button>
+        <div id="footer-accordion-item2" class="footer-block-item-content p-2 pt-0">
+          <p>
+            <a href="">Link 1</a>
+          </p>
+          <p>
+            <a href="">Link 2</a>
+          </p>
+          <p>
+            <a href="">Link 3</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex-column d-md-flex col-12 col-xl-3 justify-content-md-between flex-xl-column">
+      <!--- Newsletter subscription -->
+      <div class="footer-block-item footer-block-item-newsletter col-12 col-md-5 col-xl-12">
+        <form action="" method="post">{% csrf_token %}
+          <button class="footer-block-item-title p-2 w-100 d-flex justify-content-between h5">
+            Newsletter
+          </button>
+          <div class="input-group mx-2">
+            <input type="email" class="form-control" id="footer-newsletter" placeholder="name@example.com">
+            <div class="btn-cta">
+              <button class="btn" type="submit">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+              <label for="footer-newsletter">Newsletter</label>
+            </div>
+          </div>
+          <p class="p-2">Subscribe and receive a weekly recipe!</p>
+        </form>
+      </div>
+      <!--- Socials -->
+      <div class="footer-block-item footer-block-item-socials col-12 col-md-3 col-xl-6">
+        <button class="footer-block-item-title p-2 w-100 d-flex justify-content-between h5">
+          Socials
+        </button>
+        <div class="d-flex socials p-2 pt-0">
+          <a class="link-social" href="https://www.facebook.com" target="_blank" rel="noopener"><i
+              class="social-icon fa-brands fa-facebook-f" aria-hidden="true"></i><span
+              class="visually-hidden">Facebook</span></a>
+          <a class="link-social" href="https://www.instagram.com" target="_blank" rel="noopener"><i
+              class="social-icon fa-brands fa-instagram" aria-hidden="true"></i><span
+              class="visually-hidden">Instagram</span></a>
+          <a class="link-social" href="https://www.youtube.com" target="_blank" rel="noopener"><i
+              class="social-icon fa-brands fa-youtube" aria-hidden="true"></i><span
+              class="visually-hidden">Youtube</span></a>
+        </div>
+      </div>
+      <!--- Payment info -->
+      <div class="footer-block-item footer-block-item-socials col-12 col-md-3 col-xl-6">
+        <p class="footer-block-item-title p-2 m-0">
+          <span class="h5 pe-1">Payment</span> through our secured partner
+          <!-- Stripe logo -->
+          <span id="stripe">
+            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 468 222.5"
+              style="enable-background:new 0 0 468 222.5;" xml:space="preserve">
+              <style type="text/css">
+                .st0 {
+                  fill-rule: evenodd;
+                  clip-rule: evenodd;
+                  fill: #635BFF;
+                }
+              </style>
+              <g>
+                <path class="st0" d="M414,113.4c0-25.6-12.4-45.8-36.1-45.8c-23.8,0-38.2,20.2-38.2,45.6c0,30.1,17,45.3,41.4,45.3
+             c11.9,0,20.9-2.7,27.7-6.5v-20c-6.8,3.4-14.6,5.5-24.5,5.5c-9.7,0-18.3-3.4-19.4-15.2h48.9C413.8,121,414,115.8,414,113.4z
+              M364.6,103.9c0-11.3,6.9-16,13.2-16c6.1,0,12.6,4.7,12.6,16H364.6z" />
+                <path class="st0" d="M301.1,67.6c-9.8,0-16.1,4.6-19.6,7.8l-1.3-6.2h-22v116.6l25-5.3l0.1-28.3c3.6,2.6,8.9,6.3,17.7,6.3
+             c17.9,0,34.2-14.4,34.2-46.1C335.1,83.4,318.6,67.6,301.1,67.6z M295.1,136.5c-5.9,0-9.4-2.1-11.8-4.7l-0.1-37.1
+             c2.6-2.9,6.2-4.9,11.9-4.9c9.1,0,15.4,10.2,15.4,23.3C310.5,126.5,304.3,136.5,295.1,136.5z" />
+                <polygon class="st0" points="223.8,61.7 248.9,56.3 248.9,36 223.8,41.3 	" />
+                <rect x="223.8" y="69.3" class="st0" width="25.1" height="87.5" />
+                <path class="st0"
+                  d="M196.9,76.7l-1.6-7.4h-21.6v87.5h25V97.5c5.9-7.7,15.9-6.3,19-5.2v-23C214.5,68.1,202.8,65.9,196.9,76.7z" />
+                <path class="st0" d="M146.9,47.6l-24.4,5.2l-0.1,80.1c0,14.8,11.1,25.7,25.9,25.7c8.2,0,14.2-1.5,17.5-3.3V135
+             c-3.2,1.3-19,5.9-19-8.9V90.6h19V69.3h-19L146.9,47.6z" />
+                <path class="st0" d="M79.3,94.7c0-3.9,3.2-5.4,8.5-5.4c7.6,0,17.2,2.3,24.8,6.4V72.2c-8.3-3.3-16.5-4.6-24.8-4.6
+             C67.5,67.6,54,78.2,54,95.9c0,27.6,38,23.2,38,35.1c0,4.6-4,6.1-9.6,6.1c-8.3,0-18.9-3.4-27.3-8v23.8c9.3,4,18.7,5.7,27.3,5.7
+             c20.8,0,35.1-10.3,35.1-28.2C117.4,100.6,79.3,105.9,79.3,94.7z" />
+              </g>
+            </svg>
+          </span>
+        </p>
+        <div class="d-flex credit-cards px-2">
+          We accept
+          <!-- Mastercard logo -->
+          <span id="mastercard">
+            <svg width="24" height="16" viewBox="0 0 1000.008 618.03103" version="1.1"
+              xmlns:svg="http://www.w3.org/2000/svg">
+              <g transform="matrix(3.3557321,0,0,3.3557321,-1551.7864,-2007.0469)" id="layer1">
+                <g transform="matrix(2.5579399,0,0,2.5579399,884.90115,-11.427398)" id="g13">
+                  <g transform="translate(-502.86126,-22.613497)" id="XMLID_328_">
+                    <rect style="fill:#ff5f00" id="rect19" height="56.599998" width="31.5" class="st1" y="268.60001"
+                      x="380.20001"></rect>
+                    <path style="fill:#eb001b"
+                      d="m 382.2,296.9 c 0,-11.5 5.4,-21.7 13.7,-28.3 -6.1,-4.8 -13.8,-7.7 -22.2,-7.7 -19.9,0 -36,16.1 -36,36 0,19.9 16.1,36 36,36 8.4,0 16.1,-2.9 22.2,-7.7 -8.3,-6.5 -13.7,-16.8 -13.7,-28.3 z"
+                      class="st2" id="XMLID_330_" inkscape:connector-curvature="0"></path>
+                    <path style="fill:#f79e1b" id="path22"
+                      d="m 454.2,296.9 c 0,19.9 -16.1,36 -36,36 -8.4,0 -16.1,-2.9 -22.2,-7.7 8.4,-6.6 13.7,-16.8 13.7,-28.3 0,-11.5 -5.4,-21.7 -13.7,-28.3 6.1,-4.8 13.8,-7.7 22.2,-7.7 19.9,0 36,16.2 36,36 z"
+                      class="st3" inkscape:connector-curvature="0"></path>
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </span>
+          <!-- Visa logo -->
+          <span id="visa">
+            <svg id="visa" width="24px" height="16px" viewBox="0 0 24 16" version="1.1"
+              xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <g id="319" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <g id="New-Icons" transform="translate(-80.000000, -280.000000)" fill-rule="nonzero">
+                  <g id="Card-Brands" transform="translate(40.000000, 200.000000)">
+                    <g id="Color" transform="translate(0.000000, 80.000000)">
+                      <g id="Visa" transform="translate(40.000000, 0.000000)">
+                        <rect id="Container" stroke-opacity="0.2" stroke="#000000" stroke-width="0.5" fill="#FFFFFF"
+                          x="0.25" y="0.25" width="23.5" height="15.5" rx="2"></rect>
+                        <path
+                          d="M2.78773262,5.91443732 C2.26459089,5.62750595 1.6675389,5.39673777 1,5.23659312 L1.0280005,5.1118821 L3.76497922,5.1118821 C4.13596254,5.12488556 4.43699113,5.23650585 4.53494636,5.63071135 L5.12976697,8.46659052 L5.31198338,9.32072617 L6.97796639,5.1118821 L8.77678896,5.1118821 L6.10288111,11.2775284 L4.30396552,11.2775284 L2.78773262,5.91443732 L2.78773262,5.91443732 Z M10.0999752,11.2840738 L8.39882877,11.2840738 L9.46284763,5.1118821 L11.163901,5.1118821 L10.0999752,11.2840738 Z M16.2667821,5.26277458 L16.0354292,6.59558538 L15.881566,6.53004446 C15.5737466,6.40524617 15.1674138,6.28053516 14.6143808,6.29371316 C13.942741,6.29371316 13.6415263,6.56277129 13.6345494,6.82545859 C13.6345494,7.11441463 13.998928,7.3048411 14.5939153,7.58725177 C15.5740257,8.02718756 16.0286384,8.56556562 16.0218476,9.26818871 C16.0080799,10.5486366 14.8460128,11.376058 13.0610509,11.376058 C12.2978746,11.3694253 11.5627918,11.2180965 11.163808,11.0475679 L11.4018587,9.66204513 L11.6258627,9.76066195 C12.1788958,9.99070971 12.5428092,10.0889775 13.221984,10.0889775 C13.7117601,10.0889775 14.2368857,9.89837643 14.2435835,9.48488392 C14.2435835,9.21565125 14.0198586,9.01850486 13.3617074,8.7164581 C12.717789,8.42086943 11.8568435,7.92848346 11.8707973,7.04197926 C11.8780532,5.84042483 13.0610509,5 14.7409877,5 C15.3990458,5 15.9312413,5.13788902 16.2667821,5.26277458 Z M18.5277524,9.0974856 L19.941731,9.0974856 C19.8717762,8.78889347 19.549631,7.31147374 19.549631,7.31147374 L19.4307452,6.77964104 C19.3467437,7.00942698 19.1998574,7.38373457 19.2069273,7.37055657 C19.2069273,7.37055657 18.6678479,8.74290137 18.5277524,9.0974856 Z M20.6276036,5.1118821 L22,11.2839865 L20.4249023,11.2839865 C20.4249023,11.2839865 20.2707601,10.5748181 20.221922,10.3581228 L18.0377903,10.3581228 C17.9746264,10.5221933 17.6807607,11.2839865 17.6807607,11.2839865 L15.8957988,11.2839865 L18.4226343,5.62399144 C18.5977072,5.22341512 18.9059917,5.1118821 19.3117663,5.1118821 L20.6276036,5.1118821 L20.6276036,5.1118821 Z"
+                          id="Shape" fill="#171E6C"></path>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </span>
+          <!-- American Express logo -->
+          <span id="amex">
+            <svg id="amex" width="24px" height="16px" viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg">
+              <g fill="none" fill-rule="evenodd">
+                <rect fill="#016fd0" height="16" rx="2" width="24" />
+                <path
+                  d="m13.7640663 13.3938564v-5.70139231l10.1475359.00910497v1.57489503l-1.1728619 1.25339231 1.1728619 1.2648839v1.6083094h-1.8726188l-.9951823-1.0981657-.9881105 1.1023204z"
+                  fill="#fffffe" />
+                <path
+                  d="m14.4418122 12.7687956v-4.448884h3.7722872v1.02488398h-2.550895v.69569062h2.4900774v1.0078232h-2.4900774v.6833149h2.550895v1.0371713z"
+                  fill="#016fd0" />
+                <path
+                  d="m18.1952707 12.7687956 2.087337-2.2270055-2.0874254-2.2217901h1.6156464l1.2754917 1.41003315 1.2791161-1.41003315h1.5461657v.03500552l-2.0428729 2.18678458 2.0428729 2.1638895v.063116h-1.5617237l-1.2981216-1.4241768-1.2847735 1.4241768z"
+                  fill="#016fd0" />
+                <path
+                  d="m14.2373481 2.6319558h2.4460552l.8591381 1.95085083v-1.95085083h3.0198453l.5207514 1.46156906.5225194-1.46156906h2.3059447v5.70139227h-12.1865193z"
+                  fill="#fffffe" />
+                <g fill="#016fd0">
+                  <path
+                    d="m14.7004641 3.25135912-1.9740111 4.44517127h1.3539006l.3724199-.89016575h2.0179447l.3721547.89016575h1.3875801l-1.96579-4.44517127zm.1696353 2.55743646.592-1.41507182.5915581 1.41507182z" />
+                  <path
+                    d="m18.2119779 7.69573481v-4.44508288l1.903116.00654144.9792707 2.73272928.9856354-2.73927072h1.8316022v4.44508288l-1.1786077.01043094v-3.05334807l-1.1125746 3.04291713h-1.0758011l-1.1356464-3.05334807v3.05334807z" />
+                </g>
+              </g>
+            </svg>
+          </span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
