@@ -8,8 +8,60 @@
 {% block content %}
 <div class="container">
   <div class="row">
-    <div class="col">
-      {{ products }}
+    <div class="col text-center mt-3">
+      <h2>Products</h2>
+      <hr class="w-50 m-auto mb-4">
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="product-container col-10 offset-1">
+      <div class="row mt-1 mb-2"></div>
+      <div class="row justify-content-center">
+        {% for product in products %}
+        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+          <div class="card h-100 border">
+            <div class="d-flex align-items-center card-image-wrapper">
+              {% if product.image %}
+              <img class="card-img-top img-fluid p-2" src="{{ product.image.url }}" alt="{{ product.name }}">
+              {% else %}
+              <img class="card-img-top img-fluid p-2" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+              {% endif %}
+            </div>
+            <div class="card-body pb-0">
+              <p class="mb-0 fs-6">{{ product.name }}</p>
+            </div>
+            <div class="card-footer bg-white pt-0 border-0 text-left">
+              <div class="row">
+                <div class="col">
+                  <p class="lead mb-0 text-left font-weight-bold">{{ product.price }}€</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% if forloop.counter|divisibleby:1 %}
+        <div class="col-10 d-sm-none my-2">
+          <hr>
+        </div>
+        {% endif %}
+        {% if forloop.counter|divisibleby:2 %}
+        <div class="col-10 d-none d-sm-block d-lg-none my-2">
+          <hr>
+        </div>
+        {% endif %}
+        {% if forloop.counter|divisibleby:3 %}
+        <div class="col-10 d-none d-lg-block d-xl-none my-2">
+          <hr>
+        </div>
+        {% endif %}
+        {% if forloop.counter|divisibleby:4 %}
+        <div class="col-10 d-none d-xl-block my-2">
+          <hr>
+        </div>
+        {% endif %}
+        {% endfor %}
+      </div>
     </div>
   </div>
 </div>

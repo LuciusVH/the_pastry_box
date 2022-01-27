@@ -375,6 +375,17 @@ ul[aria-labelledby="dropdown-products"] a {
 }
 
 
+/* ______ PRODUCTS CARD ______ */
+
+.card-image-wrapper {
+  aspect-ratio: 1;
+}
+
+.product-container img {
+  height: fit-content;
+}
+
+
 /* ______ FOOTER ______ */
 
 footer {
