@@ -49,9 +49,9 @@
   <div class="message-container"></div>
   {% endif %}
 
-  {% block page_header %}{% endblock page_header %}
-
-  {% block content %}{% endblock content %}
+  <main>
+    {% block content %}{% endblock content %}
+  </main>
 
   <footer class="container-fluid container-md mb-3">
     {% include 'includes/footer.html' %}
