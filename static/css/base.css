@@ -69,6 +69,8 @@ h6,
   border: 1px solid var(--color-grey) !important;
   border-radius: var(--border-radius);
   max-width: -webkit-fill-available;
+  width: -moz-available;
+  width: stretch;
 }
 
 .input-group input {
@@ -156,6 +158,10 @@ button:active:not(.footer-block-item-title),
 
 /* ______ NAVBAR ______ */
 
+.page-header {
+  height: var(--navbar-height);
+}
+
 .logo {
   color: var(--color-primary);
   text-shadow: 0px 0px 4px black;
@@ -230,6 +236,10 @@ ul[aria-labelledby="dropdown-products"] a {
 @media screen and (max-width: 1200px) {
   :root {
     --navbar-height: 51px;
+  }
+
+  .page-header {
+    height: var(--navbar-height);
   }
 
   .toggle-logo,
