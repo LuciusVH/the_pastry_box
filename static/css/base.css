@@ -5,12 +5,13 @@
 :root {
   --font-title: 'Style Script', 'sans-serif';
   --font-body: 'Merriweather', 'sans-serif';
+  --font-size: 14px;
   --color-primary: hsla(45, 100%, 68%, 1);
   --color-background: hsla(34, 54%, 97%, 1);
   --color-text: hsl(0, 0%, 20%);
   --color-grey: hsl(0, 0%, 43.9%);
   --navbar-height: 103px;
-  --border-radius: 8px;
+  --border-radius: .5rem;
   --box-shadow: 0 0 0 0.2rem hsla(45, 100%, 68%, 0.75);
 }
 
@@ -18,7 +19,7 @@ body {
   font-family: var(--font-body);
   color: var(--color-text);
   background-color: var(--color-background);
-  font-size: 17px;
+  font-size: var(--font-size);
 }
 
 main {
@@ -90,7 +91,7 @@ h6,
 
 /* ______ LINKS ______ */
 
-a:not(.nav-link, .link-social),
+a:not(.nav-link, .link-social, .card-image-wrapper a),
 .link {
   color: var(--color-text);
   padding-left: 1px;
@@ -121,11 +122,11 @@ a:active,
 button,
 .btn {
   border-radius: var(--border-radius);
-  font-size: 17px;
+  /* font-size: 17px; */
 }
 
-button:active:not(.footer-block-item-title),
-.btn:active {
+button:active:not(.footer-block-item-title, #product-description-accordion-toggler),
+.btn:active:not(#product-description-accordion-toggler) {
   transform: scale(0.95);
 }
 
@@ -137,6 +138,10 @@ button:active:not(.footer-block-item-title),
   background-color: var(--color-primary);
   border-color: var(--color-primary);
   box-shadow: var(--box-shadow);
+}
+
+.btn:focus {
+  box-shadow: none;
 }
 
 
@@ -364,14 +369,28 @@ ul[aria-labelledby="dropdown-products"] a {
 }
 
 
-/* ______ PRODUCTS CARD ______ */
+/* ______ PRODUCTS DISPLAY ______ */
 
 .card-image-wrapper {
   aspect-ratio: 1;
+  background-color: white;
+  border-radius: var(--border-radius);
 }
 
 .product-container img {
   height: fit-content;
+}
+
+.product-description .btn {
+  font-size: var(--font-size) !important;
+}
+
+#product-description-accordion-toggler i.fa-caret-up {
+  display: none;
+}
+
+#product-description-accordion {
+  display: none;
 }
 
 
