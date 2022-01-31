@@ -375,9 +375,34 @@ ul[aria-labelledby="dropdown-products"] a {
   aspect-ratio: 1;
   background-color: white;
   border-radius: var(--border-radius);
+  position: relative;
 }
 
-.product-container img {
+.dekstop-description-container {
+  overflow: hidden;
+  position: absolute;
+  inset: 0;
+}
+
+.dekstop-description-container>.desktop-description-wrapper {
+  opacity: 0;
+}
+
+.dekstop-description-container:hover {
+  background: hsla(0, 0%, 100%, .7);
+}
+
+.dekstop-description-container:hover>.desktop-description-wrapper {
+  opacity: 1;
+}
+
+.desktop-description-wrapper {
+  max-height: 100%;
+  overflow: scroll;
+}
+
+.card-image-wrapper>img,
+.card-image-wrapper .product-container img {
   height: fit-content;
 }
 
