@@ -87,12 +87,12 @@
           </div>
         </a>
         <ul class="dropdown-menu border-0" aria-labelledby="dropdown-products">
-          <li><a class="dropdown-item" href="#">Cake Pans</a></li>
-          <li><a class="dropdown-item" href="#">Tart Rings</a></li>
-          <li><a class="dropdown-item" href="#">Piping Accessories</a></li>
-          <li><a class="dropdown-item" href="#">Pastry Utensils</a></li>
-          <li><a class="dropdown-item" href="#">Ingredients</a></li>
-          <li><a class="dropdown-item" href="#">Appliances</a></li>
+          <li><a class="dropdown-item" href="{% url 'products' %}?category=cake_pans">Cake Pans</a></li>
+          <li><a class="dropdown-item" href="{% url 'products' %}?category=tart_rings">Tart Rings</a></li>
+          <li><a class="dropdown-item" href="{% url 'products' %}?category=piping">Piping Accessories</a></li>
+          <li><a class="dropdown-item" href="{% url 'products' %}?category=utensils">Pastry Utensils</a></li>
+          <li><a class="dropdown-item" href="{% url 'products' %}?category=ingredients">Ingredients</a></li>
+          <li><a class="dropdown-item" href="{% url 'products' %}?category=appliances">Appliances</a></li>
           <li><a class="dropdown-item" href="{% url 'products' %}">All Products</a></li>
         </ul>
       </li>
