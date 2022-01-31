@@ -91,7 +91,7 @@ h6,
 
 /* ______ LINKS ______ */
 
-a:not(.nav-link, .link-social, .card-image-wrapper a),
+a:not(.nav-link, .dropdown-item, .link-social, .card-image-wrapper a),
 .link {
   color: var(--color-text);
   padding-left: 1px;
