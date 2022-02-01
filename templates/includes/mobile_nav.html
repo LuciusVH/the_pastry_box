@@ -34,12 +34,18 @@
           Products
         </a>
         <ul class="dropdown-menu" aria-labelledby="dropdown-products-mobile">
-          <li><a class="dropdown-item nav-link text-black" href="#">Cake Pans</a></li>
-          <li><a class="dropdown-item nav-link text-black" href="#">Tart Rings</a></li>
-          <li><a class="dropdown-item nav-link text-black" href="#">Piping Accessories</a></li>
-          <li><a class="dropdown-item nav-link text-black" href="#">Pastry Utensils</a></li>
-          <li><a class="dropdown-item nav-link text-black" href="#">Ingredients</a></li>
-          <li><a class="dropdown-item nav-link text-black" href="#">Appliances</a></li>
+          <li><a class="dropdown-item nav-link text-black" href="{% url 'products' %}?category=cake_pans">Cake Pans</a>
+          </li>
+          <li><a class="dropdown-item nav-link text-black" href="{% url 'products' %}?category=tart_rings">Tart
+              Rings</a></li>
+          <li><a class="dropdown-item nav-link text-black" href="{% url 'products' %}?category=piping">Piping
+              Accessories</a></li>
+          <li><a class="dropdown-item nav-link text-black" href="{% url 'products' %}?category=utensils">Pastry
+              Utensils</a></li>
+          <li><a class="dropdown-item nav-link text-black"
+              href="{% url 'products' %}?category=ingredients">Ingredients</a></li>
+          <li><a class="dropdown-item nav-link text-black"
+              href="{% url 'products' %}?category=appliances">Appliances</a></li>
           <li><a class="dropdown-item nav-link text-black" href="{% url 'products' %}">All Products</a></li>
         </ul>
       </li>
