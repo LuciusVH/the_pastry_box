@@ -21,7 +21,7 @@
           <!-- Sorting selector -->
           <div class="sort-select-wrapper">
             <select id="sort-selector"
-              class="custom-select custom-select-sm rounded border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
+              class="custom-select custom-select-sm rounded border border-{% if current_sorting != 'None_None' %}yellow{% else %}black{% endif %}">
               <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
               <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)
               </option>

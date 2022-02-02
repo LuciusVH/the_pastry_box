@@ -463,6 +463,9 @@ ul[aria-labelledby="dropdown-products"] a {
   text-decoration: none;
 }
 
+.border-yellow {
+  border-color: var(--color-primary) !important;
+}
 
 /* ______ FOOTER ______ */
 
