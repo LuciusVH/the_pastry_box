@@ -1,0 +1,125 @@
+<div class="container d-none d-xl-block">
+  <div class="row mt-1">
+    <!-- Logo -->
+    <div class="col-lg-4 d-flex align-items-center">
+      <a href="{% url 'home' %}" class="nav-link">
+        <h2 class="logo my-0">The Pastry Box</h2>
+      </a>
+    </div>
+    <!-- Search bar -->
+    <div class="col-lg-4 d-flex align-items-center">
+      <form id="search-bar" method="GET" action="{% url 'products' %}">
+        <div class="input-group">
+          <input class="form-control" type="text" name="q" placeholder="Search">
+          <div class="btn-cta">
+            <button class="btn" type="submit">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- Account dropdown & Shopping cart -->
+    <div class="col-lg-4 d-flex align-items-center justify-content-end">
+      <ul class="list-inline list-unstyled text-center my-0 d-flex align-items-center">
+        <!-- Account dropdown -->
+        <li class="list-inline-item dropdown">
+          <a class="text-black nav-link" href="#" id="account-options" data-bs-toggle="dropdown"
+            data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false" data-bs-offset="-15,0">
+            <div class="text-center">
+              <p class="my-0">My Account <i class="fa-solid fa-caret-down"></i></p>
+            </div>
+          </a>
+          <div class="dropdown-menu border-0" aria-labelledby="account-options">
+            {% if request.user.is_authenticated %}
+            {% if request.user.is_superuser %}
+            <a href="" class="dropdown-item">Product Management</a>
+            {% endif %}
+            <a href="" class="dropdown-item">My Profile</a>
+            <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+            {% else %}
+            {% include 'includes/signin-up_form.html' %}
+            {% endif %}
+          </div>
+        </li>
+        <span class="navbar-divider">|</span>
+        <!-- Shopping cart -->
+        <li class="list-inline-item">
+          <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link btn cart"
+            href="">
+            <div class="text-center">
+              <i class="fas fa-cart-shopping fa-lg"></i>
+              {% if grand_total %}
+              ${{ grand_total|floatformat:2 }}
+              {% else %}
+              Cart
+              {% endif %}
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row mb-1 d-flex align-items-center">
+    <!-- Navigation links -->
+    <ul class="list-inline list-unstyled text-center my-0">
+      <li class="list-inline-item dropdown">
+        <a class="text-black nav-link" href="#">
+          <div class="text-center">
+            <p class="my-0">Home</p>
+          </div>
+        </a>
+      </li>
+      <span class="navbar-divider">|</span>
+      <li class="list-inline-item dropdown">
+        <a class="text-black nav-link" href="#">
+          <div class="text-center">
+            <p class="my-0">Subscription</p>
+          </div>
+        </a>
+      </li>
+      <span class="navbar-divider">|</span>
+      <li class="list-inline-item dropdown">
+        <a class="text-black nav-link" href="#" id="dropdown-products" data-bs-toggle="dropdown"
+          data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false" data-bs-offset="-9,0">
+          <div class="text-center">
+            <p class="my-0">Products <i class="fa-solid fa-caret-down"></i></p>
+          </div>
+        </a>
+        <ul class="dropdown-menu border-0" aria-labelledby="dropdown-products">
+          <li><a class="dropdown-item" href="{% url 'products' %}?category=cake_pans">Cake Pans</a></li>
+          <li><a class="dropdown-item" href="{% url 'products' %}?category=tart_rings">Tart Rings</a></li>
+          <li><a class="dropdown-item" href="{% url 'products' %}?category=piping">Piping Accessories</a></li>
+          <li><a class="dropdown-item" href="{% url 'products' %}?category=utensils">Pastry Utensils</a></li>
+          <li><a class="dropdown-item" href="{% url 'products' %}?category=ingredients">Ingredients</a></li>
+          <li><a class="dropdown-item" href="{% url 'products' %}?category=appliances">Appliances</a></li>
+          <li><a class="dropdown-item" href="{% url 'products' %}">All Products</a></li>
+        </ul>
+      </li>
+      <span class="navbar-divider">|</span>
+      <li class="list-inline-item dropdown">
+        <a class="text-black nav-link" href="#">
+          <div class="text-center">
+            <p class="my-0">Recipes</p>
+          </div>
+        </a>
+      </li>
+      <span class="navbar-divider">|</span>
+      <li class="list-inline-item dropdown">
+        <a class="text-black nav-link" href="#">
+          <div class="text-center">
+            <p class="my-0">Activate my Subscription</p>
+          </div>
+        </a>
+      </li>
+      <span class="navbar-divider">|</span>
+      <li class="list-inline-item dropdown">
+        <a class="text-black nav-link" href="#">
+          <div class="text-center">
+            <p class="my-0">Contact Us</p>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
