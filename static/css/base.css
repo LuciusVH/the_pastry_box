@@ -91,7 +91,7 @@ h6,
 
 /* ______ LINKS ______ */
 
-a:not(.nav-link, .dropdown-item, .link-social, .card-image-wrapper a, .btt-link),
+a:not(.nav-link, .dropdown-item, .link-social, .card-image-wrapper a, .btt-link, .category-link),
 .link {
   color: var(--color-text);
   padding-left: 1px;
@@ -106,8 +106,8 @@ a:not(.nav-link, .dropdown-item, .link-social, .card-image-wrapper a, .btt-link)
   transition: all 80ms ease-in-out;
 }
 
-a:hover,
-a:active,
+a:hover:not(.nav-link, .dropdown-item, .link-social, .card-image-wrapper a, .btt-link, .category-link),
+a:active:not(.nav-link, .dropdown-item, .link-social, .card-image-wrapper a, .btt-link, .category-link),
 .link:hover,
 .link:active {
   color: var(--color-text);
@@ -457,6 +457,10 @@ ul[aria-labelledby="dropdown-products"] a {
 
 #product-description-accordion {
   display: none;
+}
+
+.category-link {
+  text-decoration: none;
 }
 
 
