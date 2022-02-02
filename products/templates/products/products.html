@@ -18,6 +18,7 @@
     <div class="product-container col-10">
       <div class="row mt-1 mb-2 align-items-center">
         <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
+          <!-- Sorting selector -->
           <div class="sort-select-wrapper">
             <select id="sort-selector"
               class="custom-select custom-select-sm rounded border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
@@ -39,6 +40,7 @@
           </div>
         </div>
         <div class="col-12 col-md-6 order-md-first">
+          <!-- Products count & search result display -->
           <p class="text-muted mt-3 mt-md-0 text-center text-md-start">
             {% if search_term or current_categories or current_sorting != 'None_None' %}
             <span class="small"><a href="{% url 'products' %}">All Products</a> | </span>
@@ -48,14 +50,19 @@
         </div>
       </div>
       <div class="row justify-content-center">
+        <!-- Products listing -->
         {% for product in products %}
         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
           <div class="card h-100 border">
             <div class="d-flex align-items-center card-image-wrapper">
               {% if product.image %}
-              <img class="card-img-top img-fluid p-2" src="{{ product.image.url }}" alt="{{ product.name }}">
+              <a href="{% url 'product_detail' product.sku %}">
+                <img class="card-img-top img-fluid p-2" src="{{ product.image.url }}" alt="{{ product.name }}">
+              </a>
               {% else %}
-              <img class="card-img-top img-fluid p-2" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+              <a href="{% url 'product_detail' product.sku %}">
+                <img class="card-img-top img-fluid p-2" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+              </a>
               {% endif %}
             </div>
             <div class="card-body pb-0">
@@ -95,4 +102,43 @@
     </div>
   </div>
 </div>
+<!-- Back to top button -->
+<div class="btt-button shadow-sm p-1">
+  <a class="btt-link d-flex">
+    <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
+  </a>
+</div>
 {% endblock content %}
+
+{% block postload_js %}
+{{ block.super }}
+<script type="text/javascript">
+  $('.btt-link').click((e) => {
+    window.scrollTo(0, 0)
+  })
+</script>
+
+<script type="text/javascript">
+  $('#sort-selector').change(() => {
+    var selector = $(this);
+    var currentUrl = new URL(window.location);
+    console.log(currentUrl);
+
+    var selectedVal = selector.val();
+    if (selectedVal != "reset") {
+      var sort = selectedVal.split("_")[0];
+      var direction = selectedVal.split("_")[1];
+
+      currentUrl.searchParams.set("sort", sort);
+      currentUrl.searchParams.set("direction", direction);
+
+      window.location.replace(currentUrl);
+    } else {
+      currentUrl.searchParams.delete("sort");
+      currentUrl.searchParams.delete("direction");
+
+      window.location.replace(currentUrl);
+    }
+  })
+</script>
+{% endblock postload_js %}

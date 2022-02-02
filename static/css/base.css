@@ -91,7 +91,7 @@ h6,
 
 /* ______ LINKS ______ */
 
-a:not(.nav-link, .dropdown-item, .link-social, .card-image-wrapper a),
+a:not(.nav-link, .dropdown-item, .link-social, .card-image-wrapper a, .btt-link),
 .link {
   color: var(--color-text);
   padding-left: 1px;
@@ -144,6 +144,22 @@ button:active:not(.footer-block-item-title, #product-description-accordion-toggl
   box-shadow: none;
 }
 
+.btt-button {
+  position: fixed;
+  bottom: 0;
+  right: 1rem;
+  z-index: 9999;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+  background: var(--color-primary);
+  border: 1px solid var(--color-grey);
+  border-bottom: 0;
+  opacity: 0.4;
+  transition: opacity 150ms ease-in-out;
+}
+
+.btt-button:hover {
+  opacity: 1;
+}
 
 /* ______ ICONS ______ */
 
@@ -378,22 +394,47 @@ ul[aria-labelledby="dropdown-products"] a {
   position: relative;
 }
 
-.dekstop-description-container {
+.desktop-description-container {
   overflow: hidden;
   position: absolute;
   inset: 0;
+  z-index: 1;
 }
 
-.dekstop-description-container>.desktop-description-wrapper {
+.picture-new-tab {
+  position: absolute;
+  bottom: -1.75rem;
+  left: 0;
+}
+
+.product-description-indication {
+  position: absolute;
+  bottom: 0;
+  right: .5rem;
+  cursor: default;
+  z-index: 0;
+}
+
+.desktop-description-container>.desktop-description-wrapper {
   opacity: 0;
 }
 
-.dekstop-description-container:hover {
+.desktop-description-container,
+.desktop-description-container>.desktop-description-wrapper,
+.desktop-description-container>.product-description-indication {
+  transition: 150ms ease-in-out;
+}
+
+.desktop-description-container:hover {
   background: hsla(0, 0%, 100%, .7);
 }
 
-.dekstop-description-container:hover>.desktop-description-wrapper {
+.desktop-description-container:hover>.desktop-description-wrapper {
   opacity: 1;
+}
+
+.desktop-description-container:hover>.product-description-indication {
+  opacity: 0;
 }
 
 .desktop-description-wrapper {

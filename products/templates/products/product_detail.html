@@ -9,18 +9,24 @@
 <div class="container product-detail">
   <div class="row justify-content-center">
     <div class="col-12 col-md-6 col-lg-4">
-      <div class="card-image-wrapper d-flex align-items-center my-3 border">
+      <div class="card-image-wrapper d-flex align-items-center my-3 mb-xl-4 border">
+        <!-- Product image, link to be opened in a new tab -->
         {% if product.image %}
         <a href="{{ product.image.url }}" target="_blank">
           <img class="card-img-top img-fluid p-2" src="{{ product.image.url }}" alt="{{ product.name }}">
         </a>
+        <a href="{{ product.image.url }}" target="_blank" class="picture-new-tab link d-none d-xl-flex">Full size
+          picture</a>
         {% else %}
         <img class="card-img-top img-fluid p-2" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
         {% endif %}
-        <div class="dekstop-description-container d-flex justify-content-center align-items-center p-3">
+        <!-- Description container on hovering the picture, showing only on desktop screen -->
+        <div class="desktop-description-container d-none d-xl-flex justify-content-center align-items-center p-3">
           <div class="desktop-description-wrapper">
             <p class="m-0">{{ product.description }}</p>
           </div>
+          <span class="product-description-indication d-none d-xl-inline text-muted">Hover to see product
+            description</span>
         </div>
       </div>
     </div>
@@ -29,6 +35,7 @@
         <p class="pt-1 h4">{{ product.name }}</p>
         <p class="mb-0 text-left">Price: <span class="lead font-weight-bold">{{ product.price }}€</span></p>
         <div class="product-description d-xl-none">
+          <!-- Description toggler for mobile & tablet screen -->
           <button id="product-description-accordion-toggler" type="button" class="btn p-0 pt-2"
             data-target="#product-description-accordion">Description <i class="fa-solid fa-caret-down"></i><i
               class="fa-solid fa-caret-up"></i></button>
