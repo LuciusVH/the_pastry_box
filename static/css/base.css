@@ -129,6 +129,11 @@ button:active:not(.footer-block-item-title, #product-description-accordion-toggl
   background-color: var(--color-primary);
 }
 
+.btn-cta-light {
+  border: 3px solid var(--color-primary);
+  border-radius: var(--border-radius);
+}
+
 .btn-cta:focus {
   background-color: var(--color-primary);
   border-color: var(--color-primary);
@@ -204,8 +209,6 @@ nav form {
 }
 
 .cart {
-  border: 2px solid var(--color-primary);
-  border-radius: var(--border-radius);
   margin-left: 1rem;
 }
 
@@ -402,6 +405,7 @@ ul[aria-labelledby="dropdown-products"] a {
   position: absolute;
   inset: 0;
   z-index: 1;
+  border-radius: var(--border-radius);
 }
 
 .picture-new-tab {
@@ -469,6 +473,29 @@ ul[aria-labelledby="dropdown-products"] a {
 .border-yellow {
   border-color: var(--color-primary) !important;
 }
+
+.qty {
+  width: 40px;
+  height: 25px;
+  text-align: center;
+}
+
+input.qtyplus {
+  width: 25px;
+  height: 25px;
+  border-top-right-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+  border-left: none !important;
+}
+
+input.qtyminus {
+  width: 25px;
+  height: 25px;
+  border-top-left-radius: var(--border-radius);
+  border-bottom-left-radius: var(--border-radius);
+  border-right: none !important;
+}
+
 
 /* ______ FOOTER ______ */
 
