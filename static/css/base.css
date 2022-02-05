@@ -87,7 +87,7 @@ h6,
 
 /* ______ LINKS ______ */
 
-a:not(.nav-link, .dropdown-item, .link-social, .card-image-wrapper a, .btt-link, .category-link),
+a:not(.nav-link, .dropdown-item, .link-social, .card-image-wrapper a, .btt-link, .category-link, .btn),
 .link {
   color: var(--color-text);
   padding-left: 1px;
@@ -102,8 +102,8 @@ a:not(.nav-link, .dropdown-item, .link-social, .card-image-wrapper a, .btt-link,
   transition: all 80ms ease-in-out;
 }
 
-a:hover:not(.nav-link, .dropdown-item, .link-social, .card-image-wrapper a, .btt-link, .category-link),
-a:active:not(.nav-link, .dropdown-item, .link-social, .card-image-wrapper a, .btt-link, .category-link),
+a:hover:not(.nav-link, .dropdown-item, .link-social, .card-image-wrapper a, .btt-link, .category-link, .btn),
+a:active:not(.nav-link, .dropdown-item, .link-social, .card-image-wrapper a, .btt-link, .category-link, .btn),
 .link:hover,
 .link:active {
   color: var(--color-text);
@@ -422,6 +422,10 @@ ul[aria-labelledby="dropdown-products"] a {
   z-index: 0;
 }
 
+.rounded {
+  border-radius: var(--border-radius) !important;
+}
+
 .desktop-description-container>.desktop-description-wrapper {
   opacity: 0;
 }
@@ -494,6 +498,13 @@ input.qtyminus {
   border-top-left-radius: var(--border-radius);
   border-bottom-left-radius: var(--border-radius);
   border-right: none !important;
+}
+
+
+/* ______ SHOPPING CART ______ */
+
+.cart-img {
+  max-width: 100px;
 }
 
 
