@@ -12,8 +12,8 @@ class Category(models.Model):
     def __str__(self):
         return self.friendly_name
 
-        # def get_friendly_name(self):
-        #     return self.friendly_name
+    # def get_friendly_name(self):
+    #     return self.friendly_name
 
 
 class Brand(models.Model):
@@ -23,17 +23,12 @@ class Brand(models.Model):
     def __str__(self):
         return self.friendly_name
 
-    # def get_friendly_name(self):
-    #     return self.friendly_name
-
 
 class Product(models.Model):
-    category = models.ForeignKey('Category', null=True,
-                                 blank=True, on_delete=models.SET_NULL)
-    sku = models.AutoField(primary_key=True)
+    category = models.ForeignKey('Category', on_delete=models.RESTRICT)
     name = models.CharField(max_length=254)
-    brand = models.ForeignKey('Brand', null=True, blank=True,
-                              on_delete=models.SET_NULL)
+    brand = models.ForeignKey('Brand', on_delete=models.CASCADE)
+    sku = models.CharField(max_length=14, null=True, blank=True)
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
     image_url = models.URLField(max_length=1024, null=True, blank=True)

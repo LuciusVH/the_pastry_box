@@ -11,12 +11,12 @@ def cart_contents(request):
     product_count = 0
     shopping_cart = request.session.get('shopping_cart', {})
 
-    for product_sku, quantity in shopping_cart.items():
-        product = get_object_or_404(Product, pk=product_sku)
+    for product_id, quantity in shopping_cart.items():
+        product = get_object_or_404(Product, pk=product_id)
         total += quantity * product.price
         product_count += quantity
         cart_items.append({
-            'product_sku': product_sku,
+            'product_id': product_id,
             'quantity': quantity,
             'product': product,
         })
