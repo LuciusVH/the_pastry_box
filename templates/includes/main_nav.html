@@ -45,8 +45,8 @@
         <span class="navbar-divider">|</span>
         <!-- Shopping cart -->
         <li class="list-inline-item">
-          <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link btn cart"
-            href="">
+          <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link btn btn-cta-light cart"
+            href="{% url 'view_shopping_cart' %}">
             <div class="text-center">
               <i class="fas fa-cart-shopping fa-lg"></i>
               {% if grand_total %}

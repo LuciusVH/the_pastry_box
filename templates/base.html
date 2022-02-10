@@ -40,10 +40,17 @@
 </head>
 
 <body>
-  <nav class="container-fluid fixed-top shadow-sm">
-    {% include 'includes/main_nav.html' %}
-    {% include 'includes/mobile_nav.html' %}
-  </nav>
+  <header>
+    <nav class="container-fluid fixed-top shadow-sm">
+      {% include 'includes/main_nav.html' %}
+      {% include 'includes/mobile_nav.html' %}
+    </nav>
+    <div id="delivery-banner" class="row m-0 text-center">
+      <div class="col text-white">
+        <h4 class="mb-1 mt-2">Free delivery on orders over {{ free_delivery_threshold }}€! 📦</h4>
+      </div>
+    </div>
+  </header>
 
   {% if messages %}
   <div class="message-container"></div>

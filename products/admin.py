@@ -6,13 +6,14 @@ from .models import Category, Product, Brand
 
 class ProductAdmin(admin.ModelAdmin):
     list_display = (
-        'sku',
         'name',
-        'category',
+        'sku',
+        'brand',
         'price',
-        'image',
+        'category',
     )
-    ordering = ('sku',)
+    ordering = ('name',)
+    list_filter = ('category', 'brand',)
 
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -27,6 +28,7 @@ class BrandAdmin(admin.ModelAdmin):
         'friendly_name',
         'name',
     )
+    ordering = ('friendly_name',)
 
 
 admin.site.register(Product, ProductAdmin)

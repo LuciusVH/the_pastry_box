@@ -8,8 +8,13 @@
 {% block content %}
 <div class="container product-detail">
   <div class="row justify-content-center">
+    <div class="col-12 col-lg-8 my-2">
+      <a href="javascript: history.go(-1)">Back</a>
+    </div>
+  </div>
+  <div class="row justify-content-center">
     <div class="col-12 col-md-6 col-lg-4">
-      <div class="card-image-wrapper d-flex align-items-center my-3 mb-xl-4 border">
+      <div class="card-image-wrapper d-flex align-items-center mb-3 mb-xl-4 border">
         <!-- Product image, link to be opened in a new tab -->
         {% if product.image %}
         <a href="{{ product.image.url }}" target="_blank">
@@ -31,9 +36,28 @@
       </div>
     </div>
     <div class="col-12 col-md-6 col-lg-4">
-      <div class="product-details-container mb-5 mb-md-3 mt-md-3">
-        <p class="pt-1 h4">{{ product.name }}</p>
+      <div class="product-details-container mb-5 my-md-3">
+        <p class="h4">{{ product.name }}}</p>
         <p class="mb-0 text-left">Price: <span class="lead font-weight-bold">{{ product.price }}€</span></p>
+        <form class="form" action="{% url 'add_to_shopping_cart' product.id %}" method="POST">
+          {% csrf_token %}
+          <div class="form-row">
+            <div class="col-12 mt-3">Quantity:
+              <span class="d-inline-flex">
+                <input type='button' value='-' class='qtyminus border' field='quantity' />
+                <input type='text' name='quantity' value='1' class='qty border' data-item_id="{{ product.id }}"
+                  id="id_qty_{{ product.id }}" />
+                <input type='button' value='+' class='qtyplus border' field='quantity' />
+              </span>
+            </div>
+
+            <div class="col-12 d-flex justify-content-between mt-3">
+              <button type="submit" class="btn btn-cta-light text-uppercase">Add to Cart</button>
+              <button type="submit" class="btn btn-cta btn-cta-light text-uppercase">Buy now!</button>
+            </div>
+            <input type="hidden" name="redirect_url" value="{{ request.path }}">
+          </div>
+        </form>
         <div class="product-description d-xl-none">
           <!-- Description toggler for mobile & tablet screen -->
           <button id="product-description-accordion-toggler" type="button" class="btn p-0 pt-2"
@@ -47,6 +71,7 @@
 </div>
 {% endblock content %}
 
-{% block extra_js %}
+{% block postload_js %}
 <script src="{% static 'js/mobile_product_description.js' %}"></script>
-{% endblock extra_js %}
+<script src="{% static 'js/input_quantity.js' %}"></script>
+{% endblock postload_js %}

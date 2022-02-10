@@ -21,7 +21,7 @@
           <!-- Sorting selector -->
           <div class="sort-select-wrapper">
             <select id="sort-selector"
-              class="custom-select custom-select-sm rounded border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
+              class="custom-select custom-select-sm rounded border border-{% if current_sorting != 'None_None' %}yellow{% else %}black{% endif %}">
               <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
               <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)
               </option>
@@ -56,11 +56,11 @@
           <div class="card h-100 border">
             <div class="d-flex align-items-center card-image-wrapper">
               {% if product.image %}
-              <a href="{% url 'product_detail' product.sku %}">
+              <a href="{% url 'product_detail' product.id %}">
                 <img class="card-img-top img-fluid p-2" src="{{ product.image.url }}" alt="{{ product.name }}">
               </a>
               {% else %}
-              <a href="{% url 'product_detail' product.sku %}">
+              <a href="{% url 'product_detail' product.id %}">
                 <img class="card-img-top img-fluid p-2" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
               </a>
               {% endif %}
@@ -72,6 +72,14 @@
               <div class="row">
                 <div class="col">
                   <p class="lead mb-0 text-left font-weight-bold">{{ product.price }}€</p>
+                  {% if product.category %}
+                  <p class="small mt-1 mb-0">
+                    <a class="text-muted category-link"
+                      href="{% url 'products' %}?category={{ product.category.name }}">
+                      <i class="fa-solid fa-tag mr-1"></i>{{ product.category.friendly_name }}
+                    </a>
+                  </p>
+                  {% endif %}
                 </div>
               </div>
             </div>
@@ -112,17 +120,18 @@
 
 {% block postload_js %}
 {{ block.super }}
+<!-- Back to top JS -->
 <script type="text/javascript">
   $('.btt-link').click((e) => {
     window.scrollTo(0, 0)
   })
 </script>
 
+<!-- Sorting selector JS -->
 <script type="text/javascript">
-  $('#sort-selector').change(() => {
-    var selector = $(this);
+  $('#sort-selector').change((e) => {
+    var selector = $(e.target);
     var currentUrl = new URL(window.location);
-    console.log(currentUrl);
 
     var selectedVal = selector.val();
     if (selectedVal != "reset") {
