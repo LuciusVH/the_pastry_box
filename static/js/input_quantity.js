@@ -28,12 +28,12 @@ jQuery(document).ready(function () {
     // Get its current value
     var currentVal = parseInt($(this).siblings('input[name=' + fieldName + ']').val());
     // If it isn't undefined and it's greater than 1
-    if (!isNaN(currentVal) && currentVal > 1) {
+    if (!isNaN(currentVal) && currentVal > 0) {
       // Decrement one
       $(this).siblings('input[name=' + fieldName + ']').val(currentVal - 1);
     } else {
-      // Otherwise put a 1 there
-      $(this).siblings('input[name=' + fieldName + ']').val(1);
+      // Otherwise put a 0 there
+      $(this).siblings('input[name=' + fieldName + ']').val(0);
     }
   });
 });
