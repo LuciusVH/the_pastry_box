@@ -23,6 +23,7 @@ def add_to_shopping_cart(request, product_id):
     if quantity != 0:
         if product_id in list(shopping_cart.keys()):
             shopping_cart[product_id] += quantity
+            messages.success(request, f'Added {product.name} to your bag')
         else:
             shopping_cart[product_id] = quantity
             messages.success(request, f'Added {product.name} to your bag')

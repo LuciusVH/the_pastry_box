@@ -508,6 +508,7 @@ input.qtyminus {
   top: 72px;
   right: 15px;
   z-index: 9999999;
+  max-width: calc(100vw - 30px);
 }
 
 .custom-toast {

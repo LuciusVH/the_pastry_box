@@ -72,6 +72,7 @@
 {% endblock content %}
 
 {% block postload_js %}
+{{ block.super }}
 <script src="{% static 'js/mobile_product_description.js' %}"></script>
 <script src="{% static 'js/input_quantity.js' %}"></script>
 {% endblock postload_js %}
