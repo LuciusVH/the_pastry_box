@@ -35,7 +35,6 @@
       </div>
       <div class="col-9 col-md-4 col-lg-5">
         <a class="my-0" href="{% url 'product_detail' item.product.id %}">{{ item.product.name }}</a>
-        {{ item.product.image }}
       </div>
       <div class="col-3 col-md-2 pt-1 pt-md-0">
         <p class="my-0">{{ item.product.price }}€</p>
@@ -101,6 +100,7 @@
 {% endblock content %}
 
 {% block postload_js %}
+{{ block.super }}
 <script src="{% static 'js/input_quantity.js' %}"></script>
 
 <script type="text/javascript">
