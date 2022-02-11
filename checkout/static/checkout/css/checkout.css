@@ -1,3 +1,14 @@
 fieldset input {
   margin-bottom: .5rem;
 }
+
+.fieldset-label {
+  position: relative;
+  right: .5rem;
+}
+
+#payment-form .form-control,
+#card-element {
+  color: #000;
+  border-radius: var(--border-radius);
+}
