@@ -23,7 +23,8 @@ def add_to_shopping_cart(request, product_id):
     if quantity != 0:
         if product_id in list(shopping_cart.keys()):
             shopping_cart[product_id] += quantity
-            messages.success(request, f'Updated {product.name} quantity to {shopping_cart[product_id]}') # noqa
+            messages.success(request, f'Updated {product.name} quantity to \
+              {shopping_cart[product_id]}')
         else:
             shopping_cart[product_id] = quantity
             messages.success(request, f'Added {product.name} to your bag')
@@ -41,7 +42,8 @@ def adjust_shopping_cart(request, product_id):
 
     if quantity > 0:
         shopping_cart[product_id] = quantity
-        messages.success(request, f'Updated {product.name} quantity to {shopping_cart[product_id]}') # noqa
+        messages.success(request, f'Updated {product.name} quantity to \
+          {shopping_cart[product_id]}')
     else:
         shopping_cart.pop(product_id)
         messages.success(request, f'Removed {product.name} from your bag')
