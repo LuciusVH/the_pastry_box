@@ -1,4 +1,4 @@
-<div class="toast custom-toast rounded-0 border-top-0" data-bs-autohide="false">
+<div class="toast custom-toast rounded-0 border-top-0">
   <div class="w-100 toast-capper bg-success"></div>
   <div class="toast-header bg-white text-dark justify-content-between">
     <strong class="mr-auto">Success! ✨</strong>
@@ -8,7 +8,7 @@
   </div>
   <div class="toast-body bg-white">
     {{ message }}
-    <hr class="mt-1 mb-3">
+    <hr class="my-2">
     {% if grand_total %}
     <p class="logo-font bg-white text-black py-1">Your Cart ({{ product_count }})</p>
     <div class="bag-notification-wrapper">
@@ -42,8 +42,8 @@
         </p>
         {% endif %}
         <div class="text-center">
-          <a href="{% url 'view_shopping_cart' %}" class="btn btn-cta btn-cta-light">
-            <span class="text-uppercase">Go To Secure Checkout</span>
+          <a href="{% url 'checkout' %}" class="btn btn-cta btn-cta-light">
+            <span class="text-uppercase">Secure Checkout</span>
             <span class="icon">
               <i class="fas fa-lock"></i>
             </span>
