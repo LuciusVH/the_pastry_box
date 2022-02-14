@@ -48,7 +48,7 @@ form.addEventListener('submit', function (ev) {
   card.update({
     'disabled': true
   });
-  $('#submit').attr('disabled', true);
+  $('#submit-btn').attr('disabled', true);
   stripe.confirmCardPayment(clientSecret, {
     payment_method: {
       card: card,
@@ -65,7 +65,7 @@ form.addEventListener('submit', function (ev) {
         'disabled': false
       });
       setLoading(false);
-      $('#submit').attr('disabled', false);
+      $('#submit-btn').attr('disabled', false);
     } else {
       if (result.paymentIntent.status === 'succeeded') {
         form.submit();
@@ -94,11 +94,11 @@ function showMessage(messageText) {
 function setLoading(isLoading) {
   if (isLoading) {
     // Disable the button and show a spinner
-    document.querySelector("#submit").disabled = true;
+    document.querySelector("#submit-btn").disabled = true;
     document.querySelector("#spinner").classList.remove("hidden");
     document.querySelector("#button-text").classList.add("hidden");
   } else {
-    document.querySelector("#submit").disabled = false;
+    document.querySelector("#submit-btn").disabled = false;
     document.querySelector("#spinner").classList.add("hidden");
     document.querySelector("#button-text").classList.remove("hidden");
   }

@@ -80,7 +80,7 @@
             {{ order_form.phone_number | as_crispy_field }}
             {{ order_form.street_address1 | as_crispy_field }}
             {{ order_form.street_address2 | as_crispy_field }}
-            {{ order_form.town_or_city | as_crispy_field }}
+            {{ order_form.city | as_crispy_field }}
             {{ order_form.county | as_crispy_field }}
             {{ order_form.postcode | as_crispy_field }}
             {{ order_form.country | as_crispy_field }}
@@ -112,7 +112,7 @@
               </span>
               <span>Adjust Cart</span>
             </a>
-            <button id="submit" class="btn btn-cta-light btn-cta mt-2 mt-md-0">
+            <button id="submit-btn" class="btn btn-cta-light btn-cta mt-2 mt-md-0">
               <div class="spinner hidden" id="spinner"></div>
               <div id="button-text">
                 <span>Complete Order</span>
