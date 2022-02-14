@@ -13,6 +13,16 @@ fieldset input {
   border-radius: var(--border-radius);
 }
 
+select,
+select option {
+  color: #000000;
+}
+
+select:invalid,
+select option[value=""] {
+  color: #aab7c4 !important;
+}
+
 
 /* STRIPE CSS */
 

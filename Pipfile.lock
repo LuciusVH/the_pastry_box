@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "001f1a70fb96b61a1ff86b76ada7c59c2edd42c478085ad78c683d4d4aeacf95"
+            "sha256": "bf2f894d948e39d1abeef6473b36801779d7d9155a6a4cc0bd35c12526081f8d"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -91,7 +91,7 @@
                 "sha256:2857e29ff0d34db842cd7ca3230549d1a697f96ee6d3fb071cfa6c7393832597",
                 "sha256:6881edbebdb17b39b4eaaa821b438bf6eddffb4468cf344f09f89def34a8b1df"
             ],
-            "markers": "python_version >= '3'",
+            "markers": "python_version >= '3.0'",
             "version": "==2.0.12"
         },
         "cryptography": {
@@ -150,6 +150,17 @@
             "index": "pypi",
             "version": "==0.48.0"
         },
+        "django-countries": {
+            "extras": [
+                "pyuca"
+            ],
+            "hashes": [
+                "sha256:26878b54d36bedff30b4535ceefcb8af6784741a8b30b1b8a662fb14a936a4ab",
+                "sha256:adc965f1d348124274b7d918fc1aad5e29609758af999e1822baa9f2cc06d1b8"
+            ],
+            "index": "pypi",
+            "version": "==7.2.1"
+        },
         "django-crispy-forms": {
             "hashes": [
                 "sha256:35887b8851a931374dd697207a8f56c57a9c5cb9dbf0b9fa54314da5666cea5b",
@@ -171,7 +182,7 @@
                 "sha256:84d9dd047ffa80596e0f246e2eab0b391788b0503584e8945f2368256d2735ff",
                 "sha256:9d643ff0a55b762d5cdb124b8eaa99c66322e2157b69160bc32796e824360e6d"
             ],
-            "markers": "python_version >= '3'",
+            "markers": "python_version >= '3.0'",
             "version": "==3.3"
         },
         "oauthlib": {
@@ -310,12 +321,19 @@
             ],
             "version": "==3.2.0"
         },
+        "pyuca": {
+            "hashes": [
+                "sha256:8a382fe74627f08c0d18908c0713ca4a20aad5385f077579e56208beea2893b2",
+                "sha256:abaa12e1bd2c7c68ca8396ff8383bc0654a739cef3ae68fd7af58bf29af0a91e"
+            ],
+            "version": "==1.2"
+        },
         "requests": {
             "hashes": [
                 "sha256:68d7c56fd5a8999887728ef304a6d12edc7be74f1cfa47714fc8b414525c9a61",
                 "sha256:f22fa1e554c9ddfd16e6e41ac79759e17be9e492b3587efa038054674760e72d"
             ],
-            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4, 3.5'",
+            "markers": "python_version >= '3.0'",
             "version": "==2.27.1"
         },
         "requests-oauthlib": {

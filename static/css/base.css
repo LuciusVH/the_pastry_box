@@ -82,6 +82,16 @@ h6,
   z-index: 10;
 }
 
+.form-check-input:checked {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.form-check-input:focus {
+  border-color: var(--color-primary);
+  box-shadow: none;
+}
+
 
 /* ______ LINKS ______ */
 
