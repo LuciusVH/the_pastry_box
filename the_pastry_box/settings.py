@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'home',
     'products',
+    'subscription',
     'shopping_cart',
     'checkout',
     'crispy_forms',
@@ -130,7 +131,7 @@ WSGI_APPLICATION = 'the_pastry_box.wsgi.application'
 # }
 
 DATABASES = {
-    'default': dj_database_url.parse('postgres://kjptcasquxmyox:2d7475b312ae3fa47247fde54e9f8d3f1700eac9ed44d5d0988f8f6372a1bf36@ec2-54-74-35-87.eu-west-1.compute.amazonaws.com:5432/dln7srd4se258')
+    'default': dj_database_url.parse('postgres://kjptcasquxmyox:2d7475b312ae3fa47247fde54e9f8d3f1700eac9ed44d5d0988f8f6372a1bf36@ec2-54-74-35-87.eu-west-1.compute.amazonaws.com:5432/dln7srd4se258') # noqa
 }
 
 
