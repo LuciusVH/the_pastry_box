@@ -1,7 +1,8 @@
 {% load static %}
 
 <div class="signin-up-container">
-  <form action="" class="form-signin d-flex-inline align-items-center text-center">
+  <form action="{% url 'account_login' %}" class="form-signin d-flex-inline align-items-center text-center">
+    {% csrf_token %}
     <h4>Sign In</h4>
     <div class="form-floating mb-3">
       <input type="email" class="form-control" id="signinEmail" placeholder="name@example.com">
