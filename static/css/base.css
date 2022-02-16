@@ -318,7 +318,7 @@ ul[aria-labelledby="dropdown-products"] a {
 .signin-up-container {
   position: relative;
   height: 22rem;
-  overflow: hidden;
+  overflow: hidden !important;
   transition: all 250ms ease-in-out;
 }
 
@@ -351,6 +351,34 @@ ul[aria-labelledby="dropdown-products"] a {
   #navbarAccountDropdown .navbar-nav {
     flex-direction: unset;
   }
+}
+
+.form-control {
+  height: 40px;
+  padding: 10px 12px;
+  border: 1px solid transparent;
+  border-radius: var(--border-radius);
+  background-color: white;
+  box-shadow: 0 1px 3px 0 #e6ebf1;
+  -webkit-transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease;
+}
+
+.form-control:focus,
+.form-control:active {
+  box-shadow: var(--box-shadow);
+}
+
+.form-group {
+  padding-bottom: .5rem;
+}
+
+.form-group label:not(:last-child) {
+  display: none;
+}
+
+.form-check {
+  display: inline-block;
 }
 
 
