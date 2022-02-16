@@ -35,10 +35,11 @@
             {% if request.user.is_superuser %}
             <a href="" class="dropdown-item">Product Management</a>
             {% endif %}
-            <a href="" class="dropdown-item">My Profile</a>
-            <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+            <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
+            <a href="{% url 'account_logout' %}" class="dropdown-item">Log Out</a>
             {% else %}
-            {% include 'includes/signin-up_form.html' %}
+            <a class="dropdown-item" href="{% url 'account_login' %}">Sign In</a>
+            <a class="dropdown-item" href="{% url 'account_signup' %}">Sign Up</a>
             {% endif %}
           </div>
         </li>
@@ -64,7 +65,7 @@
     <!-- Navigation links -->
     <ul class="list-inline list-unstyled text-center my-0">
       <li class="list-inline-item dropdown">
-        <a class="text-black nav-link" href="#">
+        <a class="text-black nav-link" href="{% url 'home' %}">
           <div class="text-center">
             <p class="my-0">Home</p>
           </div>

@@ -21,5 +21,29 @@
       <hr class="w-50 m-auto mb-4">
     </div>
   </div>
+
+  <div class="row pb-2">
+    {% comment %} User details {% endcomment %}
+    <div class="col-12 col-lg-6">
+      <p class="text-muted">Default Delivery Information</p>
+      <form class="mt-2" action="{% url 'profile' %}" method="POST" id="profile-update-form">
+        {% csrf_token %}
+        {{ form | crispy }}
+        <div class="text-center text-md-end mt-4">
+          <button class="btn btn-cta text-uppercase">Update Information</button>
+        </div>
+      </form>
+    </div>
+    {% comment %} User orders {% endcomment %}
+    <div class="col-12 col-lg-6">
+
+    </div>
+  </div>
 </div>
+</div>
+{% endblock %}
+
+{% block postload_js %}
+{{ block.super }}
+<script type="text/javascript" src="{% static 'profiles/js/countryfield.js' %}"></script>
 {% endblock %}

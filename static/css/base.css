@@ -57,10 +57,36 @@ h6,
 
 /* ______ INPUTS ______ */
 
-.form-control:focus {
+input::placeholder,
+input::-ms-input-placeholder,
+input::-webkit-input-placeholder,
+.input-group input::placeholder {
+  color: hsla(210, 18%, 72%, 1) !important;
+}
+
+.form-control {
+  height: 40px;
+  padding: 10px 12px;
+  border: 1px solid transparent;
+  border-radius: var(--border-radius);
+  background-color: white;
+  box-shadow: 0 1px 3px 0 #e6ebf1;
+  transition: box-shadow 150ms ease;
+}
+
+.form-control:focus,
+.form-control:active {
   border-color: var(--color-primary);
   box-shadow: var(--box-shadow);
   transition: box-shadow 150ms ease;
+}
+
+.form-group {
+  padding-bottom: .5rem;
+}
+
+.form-group label:not([for='id_remember']) {
+  display: none;
 }
 
 .input-group {
@@ -80,6 +106,10 @@ h6,
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
   z-index: 10;
+}
+
+.form-check {
+  display: inline-block;
 }
 
 .form-check-input:checked {
@@ -162,13 +192,16 @@ button:active:not(.footer-block-item-title, #product-description-accordion-toggl
   z-index: 9999;
   border-radius: var(--border-radius) var(--border-radius) 0 0;
   background: var(--color-primary);
-  border: 1px solid var(--color-grey);
+  border: 1px solid transparent;
+  box-shadow: 0 1px 3px 2px #e6ebf1;
   border-bottom: 0;
   opacity: 0.4;
-  transition: opacity 150ms ease-in-out;
 }
 
-.btt-button:hover {
+.btt-button:hover,
+.btt-button:focus {
+  box-shadow: var(--box-shadow);
+  transition: all 150ms ease;
   opacity: 1;
 }
 
@@ -311,76 +344,6 @@ ul[aria-labelledby="dropdown-products"] a {
     padding: 0.15rem 0;
   }
 }
-
-
-/* ______ SIGN IN / SIGN UP DROPDOWN ______ */
-
-.signin-up-container {
-  position: relative;
-  height: 22rem;
-  overflow: hidden !important;
-  transition: all 250ms ease-in-out;
-}
-
-.signin-up-container .form-control {
-  width: 95%;
-  border-radius: var(--border-radius);
-  margin: 0 auto;
-}
-
-.form-signin {
-  position: absolute;
-}
-
-.form-signup {
-  position: absolute;
-  left: 100vw;
-}
-
-.form-signin,
-.form-signup {
-  transition: all 250ms ease-in-out;
-}
-
-@media screen and (min-width: 576px) {
-  .signin-up-container {
-    width: 50vw;
-    overflow: initial;
-  }
-
-  #navbarAccountDropdown .navbar-nav {
-    flex-direction: unset;
-  }
-}
-
-.form-control {
-  height: 40px;
-  padding: 10px 12px;
-  border: 1px solid transparent;
-  border-radius: var(--border-radius);
-  background-color: white;
-  box-shadow: 0 1px 3px 0 #e6ebf1;
-  -webkit-transition: box-shadow 150ms ease;
-  transition: box-shadow 150ms ease;
-}
-
-.form-control:focus,
-.form-control:active {
-  box-shadow: var(--box-shadow);
-}
-
-.form-group {
-  padding-bottom: .5rem;
-}
-
-.form-group label:not(:last-child) {
-  display: none;
-}
-
-.form-check {
-  display: inline-block;
-}
-
 
 /* ______ DELIVERY BANNER ______ */
 
