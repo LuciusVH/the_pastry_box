@@ -57,10 +57,36 @@ h6,
 
 /* ______ INPUTS ______ */
 
-.form-control:focus {
+input::placeholder,
+input::-ms-input-placeholder,
+input::-webkit-input-placeholder,
+.input-group input::placeholder {
+  color: hsla(210, 18%, 72%, 1) !important;
+}
+
+.form-control {
+  height: 40px;
+  padding: 10px 12px;
+  border: 1px solid transparent;
+  border-radius: var(--border-radius);
+  background-color: white;
+  box-shadow: 0 1px 3px 0 #e6ebf1;
+  transition: box-shadow 150ms ease;
+}
+
+.form-control:focus,
+.form-control:active {
   border-color: var(--color-primary);
   box-shadow: var(--box-shadow);
   transition: box-shadow 150ms ease;
+}
+
+.form-group {
+  padding-bottom: .5rem;
+}
+
+.form-group label:not([for='id_remember']) {
+  display: none;
 }
 
 .input-group {
@@ -82,6 +108,10 @@ h6,
   z-index: 10;
 }
 
+.form-check {
+  display: inline-block;
+}
+
 .form-check-input:checked {
   background-color: var(--color-primary);
   border-color: var(--color-primary);
@@ -90,34 +120,6 @@ h6,
 .form-check-input:focus {
   border-color: var(--color-primary);
   box-shadow: none;
-}
-
-.form-control {
-  height: 40px;
-  padding: 10px 12px;
-  border: 1px solid transparent;
-  border-radius: var(--border-radius);
-  background-color: white;
-  box-shadow: 0 1px 3px 0 #e6ebf1;
-  -webkit-transition: box-shadow 150ms ease;
-  transition: box-shadow 150ms ease;
-}
-
-.form-control:focus,
-.form-control:active {
-  box-shadow: var(--box-shadow);
-}
-
-.form-group {
-  padding-bottom: .5rem;
-}
-
-.form-group label:not([for='id_remember']) {
-  display: none;
-}
-
-.form-check {
-  display: inline-block;
 }
 
 
