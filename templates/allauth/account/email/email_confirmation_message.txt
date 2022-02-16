@@ -2,6 +2,8 @@
 {% load account %}
 {% load i18n %}
 
-{% block content %}{% autoescape off %}{% user_display user as user_display %}{% blocktrans with site_name=current_site.name site_domain=current_site.domain %}You're receiving this e-mail because user {{ user_display }} has given your e-mail address to register an account on {{ site_domain }}.
+{% block content %}{% autoescape off %}{% blocktrans with site_name=current_site.name site_domain=current_site.domain %}You're receiving this e-mail because it has been used to register an account on {{ site_domain }}.
 
-To confirm this is correct, go to {{ activate_url }}{% endblocktrans %}{% endautoescape %}{% endblock %}
+If this was indeed you, confirm your account by visiting {{ activate_url }} 
+
+Otherwise, sorry to have disturbed you! But visit us, I'm sure you'll like to have an account too 😉{% endblocktrans %}{% endautoescape %}{% endblock %}

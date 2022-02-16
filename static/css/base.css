@@ -376,7 +376,7 @@ ul[aria-labelledby="dropdown-products"] a {
   padding-bottom: .5rem;
 }
 
-.form-group label:not(:last-child) {
+.form-group label:not([for='id_remember']) {
   display: none;
 }
 
