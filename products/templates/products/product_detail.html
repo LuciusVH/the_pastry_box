@@ -23,7 +23,7 @@
         <a href="{{ product.image.url }}" target="_blank" class="picture-new-tab link d-none d-xl-flex">Full size
           picture</a>
         {% else %}
-        <img class="card-img-top img-fluid p-2" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+        <img class="card-img-top img-fluid p-2" src="{% static '/img/noimage.png' %}" alt="{{ product.name }}">
         {% endif %}
         <!-- Description container on hovering the picture, showing only on desktop screen -->
         <div class="desktop-description-container d-none d-xl-flex justify-content-center align-items-center p-3">
