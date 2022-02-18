@@ -41,6 +41,7 @@
           Spend <strong>{{ free_delivery_delta }}€</strong> more to get free delivery!
         </p>
         {% endif %}
+        {% if not 'buying_now' in message.extra_tags %}
         <div class="text-center">
           <a href="{% url 'checkout' %}" class="btn btn-cta btn-cta-light">
             <span class="text-uppercase">Secure Checkout</span>
@@ -49,6 +50,7 @@
             </span>
           </a>
         </div>
+        {% endif %}
       </div>
     </div>
     {% endif %}
