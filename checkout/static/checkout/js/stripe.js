@@ -44,6 +44,7 @@ var form = document.getElementById('payment-form');
 
 form.addEventListener('submit', function (ev) {
   ev.preventDefault();
+  setLoading(true);
   card.update({
     'disabled': true
   });
@@ -97,6 +98,7 @@ form.addEventListener('submit', function (ev) {
                   </span>
                   <span>${result.error.message}</span>`;
         $(errorDiv).html(html);
+        setLoading(false);
         card.update({
           'disabled': false
         });
