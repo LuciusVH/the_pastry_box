@@ -84,7 +84,6 @@ def remove_from_shopping_cart(request, product_id):
     try:
         product = get_object_or_404(Product, pk=product_id)
         shopping_cart = request.session.get('shopping_cart', {})
-        print(shopping_cart)
 
         shopping_cart.pop(product_id)
 
