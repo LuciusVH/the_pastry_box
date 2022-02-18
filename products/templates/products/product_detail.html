@@ -53,7 +53,9 @@
 
             <div class="col-12 d-flex justify-content-between mt-3">
               <button type="submit" class="btn btn-cta-light text-uppercase">Add to Cart</button>
-              <button type="submit" class="btn btn-cta btn-cta-light text-uppercase">Buy now!</button>
+              <button type="submit" formaction="{% url 'buy_now' product.id %}"
+                class="btn btn-cta btn-cta-light text-uppercase">Buy
+                now!</button>
             </div>
             <input type="hidden" name="redirect_url" value="{{ request.path }}">
           </div>
@@ -73,6 +75,6 @@
 
 {% block postload_js %}
 {{ block.super }}
-<script src="{% static 'js/mobile_product_description.js' %}"></script>
+<script src="{% static 'products/js/mobile_product_description.js' %}"></script>
 <script src="{% static 'js/input_quantity.js' %}"></script>
 {% endblock postload_js %}
