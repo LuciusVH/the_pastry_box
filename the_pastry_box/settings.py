@@ -134,9 +134,9 @@ WSGI_APPLICATION = 'the_pastry_box.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-if 'DATABASE_URI' in os.environ:
+if 'DATABASE_URL' in os.environ:
     DATABASES = {
-        'default': dj_database_url.parse(env('POSTGRESQL_URI'))
+        'default': dj_database_url.parse(env('DATABASE_URL'))
     }
 else:
     DATABASES = {
