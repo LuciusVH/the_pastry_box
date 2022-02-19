@@ -33,7 +33,7 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['thepastrybox.herokuapp.com', 'locahost']
 
 
 # Application definition
@@ -134,16 +134,17 @@ WSGI_APPLICATION = 'the_pastry_box.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-DATABASES = {
-    'default': dj_database_url.parse('postgres://kjptcasquxmyox:2d7475b312ae3fa47247fde54e9f8d3f1700eac9ed44d5d0988f8f6372a1bf36@ec2-54-74-35-87.eu-west-1.compute.amazonaws.com:5432/dln7srd4se258')
-}
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(env('DATABASE_URL'))
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 
 # Password validation
@@ -202,4 +203,4 @@ STRIPE_PUBLIC_KEY = env('STRIPE_PUBLIC_KEY')
 STRIPE_SECRET_KEY = env('STRIPE_SECRET_KEY')
 STRIPE_WEBHOOK_SECRET = env('STRIPE_WEBHOOK_SECRET')
 STRIPE_CURRENCY = 'eur'
-DEFAULT_FROM_EMAIL = 'thepastrybox.ms4@gmail.com'
+DEFAULT_FROM_EMAIL = env('EMAIL_HOST_USER')
