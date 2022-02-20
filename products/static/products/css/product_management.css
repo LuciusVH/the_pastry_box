@@ -1,0 +1,8 @@
+.title-inline {
+  display: inline-block;
+
+}
+
+.form-group label {
+  display: inline-block !important;
+}
