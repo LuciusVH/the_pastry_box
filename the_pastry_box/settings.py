@@ -33,7 +33,7 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
 
-ALLOWED_HOSTS = ['thepastrybox.herokuapp.com', 'locahost']
+ALLOWED_HOSTS = ['thepastrybox.herokuapp.com', 'localhost']
 
 
 # Application definition
@@ -109,15 +109,15 @@ AUTHENTICATION_BACKENDS = [
 SITE_ID = 1
 
 # Email
-if not DEBUG:
-    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-    EMAIL_HOST_USER = env('EMAIL_HOST_USER')
-    EMAIL_HOST = 'smtp.gmail.com'
-    EMAIL_PORT = 587
-    EMAIL_USE_TLS = True
-    EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
-else:
-    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# if not DEBUG:
+#     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+#     EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+#     EMAIL_HOST = 'smtp.gmail.com'
+#     EMAIL_PORT = 587
+#     EMAIL_USE_TLS = True
+#     EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+# else:
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Authentification
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
@@ -189,6 +189,12 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 if 'USE_AWS' in os.environ:
+    # Cache control
+    AWS_S3_OBJECT_PARAMETERS = {
+        'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
+        'CacheControl': 'max-age=94608000',
+    }
+
     # Bucket Config
     AWS_STORAGE_BUCKET_NAME = 'thepastrybox'
     AWS_S3_REGION_NAME = 'eu-north-1'
