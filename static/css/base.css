@@ -112,7 +112,7 @@ input::-webkit-input-placeholder,
   display: inline-block;
 }
 
-.form-check-input:checked {
+input[type='checkbox']:checked {
   background-color: var(--color-primary);
   border-color: var(--color-primary);
 }
@@ -404,6 +404,10 @@ ul[aria-labelledby="dropdown-products"] a {
   position: relative;
 }
 
+.img-fluid {
+  max-height: 13rem;
+}
+
 .desktop-description-container {
   overflow: hidden;
   position: absolute;
@@ -507,6 +511,21 @@ input.qtyminus {
   border-top-left-radius: var(--border-radius);
   border-bottom-left-radius: var(--border-radius);
   border-right: none !important;
+}
+
+.btn-file {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-file input[type="file"] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  opacity: 0;
+  cursor: pointer;
 }
 
 
