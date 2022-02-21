@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'products/css/product_management.css' %}">
+{% endblock extra_css %}
+
+
+{% block page_header %}
+<div class="page-header"></div>
+{% endblock page_header %}
+
+{% block content %}
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col text-center mt-3">
+        <h2 class="title-inline">Product Management | </h2>
+        <h4 class="title-inline">Add a Product</h4>
+        <hr class="w-50 m-auto mb-4">
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-6 col-lg-4">
+        <form action="{% url 'add_product' %}" method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          {{ form | crispy }}
+          <div class="text-center text-md-end mt-4">
+            <a href="{% url 'products' %}" class="btn btn-cta-light">Cancel</a>
+            <button type="submit" class="btn btn-cta">Add Product</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock content %}
