@@ -79,6 +79,13 @@
                     </a>
                   </p>
                   {% endif %}
+                  {% if request.user.is_superuser %}
+                  <p class="small mt-1 mb-0 text-end">
+                    <a class="text-secondary" href="{% url 'edit_product' product.id %}">Edit</a> |
+                    <a class="text-danger" href="{% url 'delete_product' product.id %}" data-bs-toggle="popover"
+                      data-bs-trigger="hover focus" data-bs-content="Oy, you sure?">Delete</a>
+                  </p>
+                  {% endif %}
                 </div>
               </div>
             </div>
