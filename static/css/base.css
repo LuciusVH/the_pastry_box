@@ -404,6 +404,10 @@ ul[aria-labelledby="dropdown-products"] a {
   position: relative;
 }
 
+.img-fluid {
+  max-height: 13rem;
+}
+
 .desktop-description-container {
   overflow: hidden;
   position: absolute;
