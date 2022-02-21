@@ -10,9 +10,9 @@ class ProductForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        categories = Category.objects.all()
+        categories = Category.objects.all().order_by('name')
         c_friendly_names = [(c.id, c.get_friendly_name()) for c in categories]
-        brands = Brand.objects.all()
+        brands = Brand.objects.all().order_by('name')
         b_friendly_names = [(b.id, b.get_friendly_name()) for b in brands]
         # placeholders = {
         #     'category': 'Category',
@@ -25,11 +25,13 @@ class ProductForm(forms.ModelForm):
         #     'image': 'Image import',
         # }
 
-        self.fields['category'].choices = b_friendly_names
-        self.fields['brand'].choices = c_friendly_names
+        self.fields['category'].choices = c_friendly_names
+        self.fields['brand'].choices = b_friendly_names
         for field_name, field in self.fields.items():
             if field_name != 'image':
                 field.widget.attrs['class'] = 'border'
+            if field_name == 'category' or field_name == 'brand':
+                field.widget.attrs['class'] = 'py-2'
         # for field in self.fields:
             # if field != 'category' or field != 'brand':
             #     if self.fields[field].required:
