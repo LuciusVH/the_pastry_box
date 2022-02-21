@@ -577,6 +577,10 @@ footer form label {
   display: none;
 }
 
+.footer-block-item-title {
+  cursor: default;
+}
+
 .social-icon {
   width: 40px;
   height: 40px;
@@ -588,7 +592,14 @@ footer form label {
   vertical-align: middle;
   margin-right: 10px;
   color: var(--color-primary);
-  transition: all 0.35s ease-in-out;
+}
+
+.link-social {
+  transition: all 0.15s ease-in-out;
+}
+
+.link-social:hover {
+  transform: scale(1.20);
 }
 
 .fa-youtube {
@@ -602,11 +613,6 @@ footer form label {
 .credit-cards>span {
   margin-left: 5px;
 }
-
-/* 
-svg#amex {
-  margin-right: 0;
-} */
 
 @media screen and (min-width: 768px) {
   footer button:not(:disabled) {
