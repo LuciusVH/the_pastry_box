@@ -30,7 +30,8 @@ class ProductForm(forms.ModelForm):
         for field_name, field in self.fields.items():
             if field_name != 'image':
                 field.widget.attrs['class'] = 'border'
-            if field_name == 'category' or field_name == 'brand':
+            if field_name == 'category' or field_name == 'brand' or \
+                    field_name == 'description':
                 field.widget.attrs['class'] = 'py-2'
         # for field in self.fields:
             # if field != 'category' or field != 'brand':
