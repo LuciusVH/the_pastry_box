@@ -16,6 +16,7 @@ django-countries = {extras = ["pyuca"], version = "*"}
 gunicorn = "*"
 boto3 = "*"
 django-storages = "*"
+django-pandas = "*"
 
 [dev-packages]
 

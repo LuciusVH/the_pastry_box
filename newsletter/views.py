@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect, reverse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.core.mail import send_mail
+from django_pandas.io import read_frame
 
 from .models import Subscriber
 from .forms import NewsletterSubscriptionForm, NewsletterContentForm
@@ -55,7 +57,19 @@ def send_newsletter(request):
     if request.method == 'POST':
         form = NewsletterContentForm(request.POST)
         if form.is_valid():
+            subscribers = Subscriber.objects.all()
+            emails = read_frame(subscribers, fieldnames=['email'])
+            emailing_list = emails['email'].values.tolist()
             form.save()
+            title = form.cleaned_data.get('title')
+            message = form.cleaned_data.get('content')
+            send_mail(
+                title,
+                message,
+                '',
+                emailing_list,
+                fail_silently=False,
+            )
             messages.success(request,
                              "Your dope newsletter has been sent! 🤜🏻💥")
             return redirect('send_newsletter')
