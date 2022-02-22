@@ -112,7 +112,7 @@ input::-webkit-input-placeholder,
   display: inline-block;
 }
 
-.form-check-input:checked {
+input[type='checkbox']:checked {
   background-color: var(--color-primary);
   border-color: var(--color-primary);
 }
@@ -404,6 +404,10 @@ ul[aria-labelledby="dropdown-products"] a {
   position: relative;
 }
 
+.img-fluid {
+  max-height: 13rem;
+}
+
 .desktop-description-container {
   overflow: hidden;
   position: absolute;
@@ -509,6 +513,21 @@ input.qtyminus {
   border-right: none !important;
 }
 
+.btn-file {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-file input[type="file"] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
 
 /* ______ TOASTS ______ */
 
@@ -558,6 +577,10 @@ footer form label {
   display: none;
 }
 
+.footer-block-item-title {
+  cursor: default;
+}
+
 .social-icon {
   width: 40px;
   height: 40px;
@@ -569,7 +592,14 @@ footer form label {
   vertical-align: middle;
   margin-right: 10px;
   color: var(--color-primary);
-  transition: all 0.35s ease-in-out;
+}
+
+.link-social {
+  transition: all 0.15s ease-in-out;
+}
+
+.link-social:hover {
+  transform: scale(1.20);
 }
 
 .fa-youtube {
@@ -583,11 +613,6 @@ footer form label {
 .credit-cards>span {
   margin-left: 5px;
 }
-
-/* 
-svg#amex {
-  margin-right: 0;
-} */
 
 @media screen and (min-width: 768px) {
   footer button:not(:disabled) {
