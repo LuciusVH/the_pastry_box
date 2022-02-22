@@ -1,8 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 from .models import Subscriber
-from .forms import NewsletterSubscriptionForm
+from .forms import NewsletterSubscriptionForm, NewsletterContentForm
 
 # Create your views here.
 
@@ -39,3 +40,29 @@ def newsletter_subscription(request):
         form = NewsletterSubscriptionForm()
 
     return render(newsletter_form(request))
+
+
+@login_required
+def send_newsletter(request):
+    """
+    A view to send newsletter to subscribers
+    """
+
+    if not request.user.is_superuser:
+        messages.error(request, 'You\'re not there yet my dear, sorry 😏')
+        return redirect(reverse('home'))
+
+    if request.method == 'POST':
+        form = NewsletterContentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request,
+                             "Your dope newsletter has been sent! 🤜🏻💥")
+            return redirect('send_newsletter')
+    else:
+        form = NewsletterContentForm()
+        template = 'newsletter/send.html'
+        context = {
+            'form': form,
+        }
+        return render(request, template, context)

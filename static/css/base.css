@@ -89,7 +89,7 @@ input::-webkit-input-placeholder,
   padding-bottom: 0;
 }
 
-.form-group label:not([for='id_remember']) {
+.form-group label:not([for='id_remember']):not([for='id_title']):not([for='id_content']) {
   display: none;
 }
 
