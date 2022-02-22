@@ -100,6 +100,23 @@
   </script>
   {% endblock postload_js %}
 
+  {% comment %} NEWSLETTER SUBSCRIPTION FORM {% endcomment %}
+  {% comment %} <script type='text/javascript'>
+    $(document).on('submit', '.newsletter-form', function (e) {
+      e.preventDefault();
+      $.ajax({
+        type: 'POST',
+        url: "{% url 'newsletter_subscription' %}",
+        data: {
+          email: $("#email-newsletter").val(),
+          csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
+        },
+        success: function () {
+          console.log(data.email);
+        }
+      })
+    });
+  </script> {% endcomment %}
 </body>
 
 </html>

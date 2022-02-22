@@ -90,6 +90,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
                 'shopping_cart.contexts.cart_contents',
+                'newsletter.contexts.newsletter_form_global',
             ],
             'builtins': [
                 'crispy_forms.templatetags.crispy_forms_tags',

@@ -47,19 +47,24 @@
     <div class="d-flex-column d-md-flex col-12 col-xl-3 justify-content-md-between flex-xl-column">
       <!--- Newsletter subscription -->
       <div class="footer-block-item footer-block-item-newsletter col-12 col-md-5 col-xl-12">
-        <form action="" method="post">{% csrf_token %}
+        <form action="{% url 'newsletter_subscription' %}" method="POST" class="newsletter-form">
+          {% csrf_token %}
           <p class="footer-block-item-title p-2 m-0 w-100 d-flex justify-content-between h5">
             Newsletter
           </p>
           <div class="input-group mx-2">
-            <input type="email" class="form-control" id="footer-newsletter" placeholder="name@example.com">
+            {% comment %} <input type="email" class="form-control" name="email-newsletter" id="footer-newsletter"
+              placeholder="name@example.com">
+            <label for="footer-newsletter">Your email to subscribe to our newsletter</label>
+            {% endcomment %}
+            {{ newsletter_form | crispy }}
             <div class="btn-cta">
               <button class="btn" type="submit">
                 <i class="fa-solid fa-magnifying-glass"></i>
               </button>
-              <label for="footer-newsletter">Newsletter</label>
             </div>
           </div>
+          <input type="hidden" name="same_url" value="{{ request.path }}">
           <p class="p-2">Subscribe and receive a weekly recipe!</p>
         </form>
       </div>

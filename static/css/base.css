@@ -85,6 +85,10 @@ input::-webkit-input-placeholder,
   padding-bottom: .5rem;
 }
 
+.newsletter-form .form-group {
+  padding-bottom: 0;
+}
+
 .form-group label:not([for='id_remember']) {
   display: none;
 }
@@ -93,9 +97,9 @@ input::-webkit-input-placeholder,
   border: 1px solid transparent !important;
   border-radius: var(--border-radius);
   box-shadow: 0 1px 3px 0 #e6ebf1;
-  max-width: -webkit-fill-available;
+  /* max-width: -webkit-fill-available;
   width: -moz-available;
-  width: stretch;
+  width: stretch; */
 }
 
 .input-group input {
