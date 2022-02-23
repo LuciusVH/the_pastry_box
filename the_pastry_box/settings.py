@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'shopping_cart',
     'checkout',
     'profiles',
+    'newsletter',
     'crispy_forms',
     'django_countries',
     'storages'
@@ -89,6 +90,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
                 'shopping_cart.contexts.cart_contents',
+                'newsletter.contexts.newsletter_form_global',
             ],
             'builtins': [
                 'crispy_forms.templatetags.crispy_forms_tags',
@@ -109,15 +111,15 @@ AUTHENTICATION_BACKENDS = [
 SITE_ID = 1
 
 # Email
-# if not DEBUG:
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST_USER = env('EMAIL_HOST_USER')
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
-# else:
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+if not DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+    EMAIL_HOST = 'smtp.gmail.com'
+    EMAIL_PORT = 587
+    EMAIL_USE_TLS = True
+    EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+else:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Authentification
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
