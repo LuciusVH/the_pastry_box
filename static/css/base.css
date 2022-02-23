@@ -126,6 +126,9 @@ input[type='checkbox']:checked {
   box-shadow: none;
 }
 
+textarea.form-control {
+  min-height: calc(7.5em + 0.75rem + 2px);
+}
 
 /* ______ LINKS ______ */
 
