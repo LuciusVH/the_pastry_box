@@ -1,0 +1,1 @@
+web: gunicorn the_pastry_box.wsgi:application

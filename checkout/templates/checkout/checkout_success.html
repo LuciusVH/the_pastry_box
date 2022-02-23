@@ -15,10 +15,19 @@
   <div class="container">
     <div class="row">
       <div class="col mt-3">
+        {% if from_profile %}
+        <h2>Thanks! (again) 💛</h2>
+        {% else %}
         <h2>Thanks! 💛</h2>
+        {% endif %}
         <hr class="mb-3">
+        {% if from_profile %}
+        <p>This is a past order from {{ order.date | date:'l, F j, Y'  }}.</p>
+        <p class="mb-3">We hope you enjoyed our products!</p>
+        {% else %}
         <p>A confirmation email has been sent to <span id="order-email">{{ order.email }}</span>.</p>
-        <p>But here is a recap!</p>
+        <p class="mb-3">But here is a recap!</p>
+        {% endif %}
       </div>
     </div>
 
@@ -63,7 +72,7 @@
               </p>
             </div>
             <div class="col-12 col-md-8 text-md-right">
-              <p class="small mb-0">{{ item.quantity }} @ {{ item.product.price }}€ each</p>
+              <p class="small mb-0">{{ item.quantity }} x {{ item.product.price }}€ each</p>
             </div>
           </div>
           {% endfor %}
@@ -185,6 +194,17 @@
             </div>
           </div>
         </div>
+
+        {% if from_profile %}
+        <div class="text-center text-md-end">
+          <a href="{% url 'profile' %}" class="btn btn-cta-light my-3">
+            <span class="icon mr-2">
+              <i class="fas fa-angle-left"></i>
+            </span>
+            <span class="text-uppercase">Back to Profile</span>
+          </a>
+        </div>
+        {% endif %}
       </div>
     </div>
   </div>

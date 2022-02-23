@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+{% endblock extra_css %}
+
+
+{% block page_header %}
+<div class="page-header"></div>
+{% endblock page_header %}
+
+{% block content %}
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col text-center mt-3">
+        <h2 class="title-inline">Contact Us</h2>
+        <hr class="w-50 m-auto mb-4">
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8 col-lg-6">
+        <form action="{% url 'contact' %}" method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="row">
+            <div class="col-12 col-lg-6 mb-4">
+              <label for="contact-name" class="visually-hidden">Your Name</label>
+              <input type="text" name="contact-name" id="contact-name" class="form-control" placeholder="Your Name">
+            </div>
+            <div class="col-12 col-lg-6 mb-4">
+              <label for="contact-email" class="visually-hidden">Your Email</label>
+              <input type="email" name="contact-email" id="contact-email" class="form-control" placeholder="Your Email">
+            </div>
+            <div class="col-12">
+              <label for="contact-message" class="visually-hidden">Your Message</label>
+              <textarea name="contact-message" id="contact-message" class="form-control" placeholder="Your Message"
+                rows="10"></textarea>
+            </div>
+          </div>
+          <div class="text-center text-md-end mt-4">
+            <button type="submit" class="btn btn-cta">Send</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock content %}

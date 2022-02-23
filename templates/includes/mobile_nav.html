@@ -56,7 +56,7 @@
         <a class="nav-link text-black" href="#">Activate my Subscription</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-black" href="#">Contact Us</a>
+        <a class="nav-link text-black" href="{% url 'contact' %}">Contact Us</a>
       </li>
     </ul>
     <form id="search-bar-mobile" method="GET" action="{% url 'products' %}">
@@ -72,7 +72,17 @@
   </div>
   <div class="collapse navbar-collapse mt-2" id="navbarAccountDropdown">
     <ul class="navbar-nav me-auto my-2 mb-lg-0 justify-content-center">
-      {% include 'includes/signin-up_form.html' %}
+      {% if request.user.is_authenticated %}
+      {% if request.user.is_superuser %}
+      <li><a class="dropdown-item" href="{% url 'add_product' %}">Product Management</a></li>
+      <li><a class="dropdown-item" href="{% url 'send_newsletter' %}">Newsletter</a></li>
+      {% endif %}
+      <li><a class="dropdown-item" href="{% url 'profile' %}">My Profile</a></li>
+      <li><a class="dropdown-item" href="{% url 'account_logout' %}">Log Out</a></li>
+      {% else %}
+      <li><a class="dropdown-item" href="{% url 'account_login' %}">Sign In</a></li>
+      <li><a class="dropdown-item" href="{% url 'account_signup' %}">Sign Up</a></li>
+      {% endif %}
     </ul>
   </div>
 </div>

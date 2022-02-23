@@ -1,7 +1,3 @@
-fieldset input {
-  margin-bottom: .5rem;
-}
-
 .fieldset-label {
   position: relative;
   right: .5rem;
@@ -16,11 +12,6 @@ fieldset input {
 select,
 select option {
   color: #000000;
-}
-
-select:invalid,
-select option[value=""] {
-  color: #aab7c4 !important;
 }
 
 
@@ -56,6 +47,11 @@ select option[value=""] {
   box-shadow: 0 1px 3px 0 #e6ebf1;
   -webkit-transition: box-shadow 150ms ease;
   transition: box-shadow 150ms ease;
+}
+
+.StripeElement::placeholder,
+.stripe-style-input::placeholder {
+  color: hsla(210, 18%, 72%, 1);
 }
 
 .StripeElement--focus,

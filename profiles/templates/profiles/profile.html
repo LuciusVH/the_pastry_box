@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
+{% endblock %}
+
+{% block page_header %}
+<div class="container header-container">
+  <div class="row">
+    <div class="col"></div>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col text-center mt-3">
+      <h2>My Profile</h2>
+      <hr class="w-50 m-auto mb-4">
+    </div>
+  </div>
+
+  <div class="row pb-2">
+    {% comment %} User details {% endcomment %}
+    <div class="col-12 col-lg-6">
+      <p class="text-muted">Default Delivery Information</p>
+      <form class="mt-2" action="{% url 'profile' %}" method="POST" id="profile-update-form">
+        {% csrf_token %}
+        {{ form | crispy }}
+        <div class="text-center text-md-end mt-4">
+          <button class="btn btn-cta text-uppercase">Update Information</button>
+        </div>
+      </form>
+    </div>
+    {% comment %} User orders {% endcomment %}
+    <div class="col-12 col-lg-6">
+      <p class="text-muted">Order History</p>
+      <div class="order-history table-responsive">
+        <table class="table table-sm table-borderless">
+          <thead>
+            <tr>
+              <th>Order</th>
+              <th>Date</th>
+              <th>Items</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for order in orders %}
+            <tr>
+              <td>
+                <a href="{% url 'order_history' order.order_number %}" title="{{ order.order_number }}">
+                  {{ order.order_number|truncatechars:6 }}
+                </a>
+              </td>
+              <td>{{ order.date | date:"SHORT_DATE_FORMAT" }}</td>
+              <td>
+                <ul class="list-unstyled">
+                  {% for item in order.lineitems.all %}
+                  <li class="small">
+                    <a href="{% url 'product_detail' item.product.id %}">{{ item.product.name }}</a>
+                    x{{ item.quantity }}
+                  </li>
+                  {% endfor %}
+                </ul>
+              </td>
+              <td>{{ order.grand_total }}€</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+{% endblock %}
+
+{% block postload_js %}
+{{ block.super }}
+<script type="text/javascript" src="{% static 'profiles/js/countryfield.js' %}"></script>
+{% endblock %}

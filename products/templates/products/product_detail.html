@@ -14,7 +14,7 @@
   </div>
   <div class="row justify-content-center">
     <div class="col-12 col-md-6 col-lg-4">
-      <div class="card-image-wrapper d-flex align-items-center mb-3 mb-xl-4 border">
+      <div class="card-image-wrapper d-flex justify-content-center align-items-center mb-3 mb-xl-4 border">
         <!-- Product image, link to be opened in a new tab -->
         {% if product.image %}
         <a href="{{ product.image.url }}" target="_blank">
@@ -41,8 +41,8 @@
         <p class="mb-0 text-left">Price: <span class="lead font-weight-bold">{{ product.price }}€</span></p>
         <form class="form" action="{% url 'add_to_shopping_cart' product.id %}" method="POST">
           {% csrf_token %}
-          <div class="form-row">
-            <div class="col-12 mt-3">Quantity:
+          <div class="form-row d-flex flex-nowrap mt-3">
+            <div class="col-8">Quantity:
               <span class="d-inline-flex">
                 <input type='button' value='-' class='qtyminus border' field='quantity' />
                 <input type='text' name='quantity' value='1' class='qty border' data-item_id="{{ product.id }}"
@@ -50,21 +50,31 @@
                 <input type='button' value='+' class='qtyplus border' field='quantity' />
               </span>
             </div>
-
-            <div class="col-12 d-flex justify-content-between mt-3">
-              <button type="submit" class="btn btn-cta-light text-uppercase">Add to Cart</button>
-              <button type="submit" class="btn btn-cta btn-cta-light text-uppercase">Buy now!</button>
+            <div class="col-4">
+              {% if request.user.is_superuser %}
+              <p class="small mt-1 mb-0 text-end">
+                <a class="text-secondary" href="{% url 'edit_product' product.id %}">Edit</a> |
+                <a class="text-danger" href="{% url 'delete_product' product.id %}" data-bs-toggle=" popover"
+                  data-bs-trigger="hover focus" data-bs-content="Oy, you sure?">Delete</a>
+              </p>
+              {% endif %}
             </div>
-            <input type="hidden" name="redirect_url" value="{{ request.path }}">
           </div>
-        </form>
-        <div class="product-description d-xl-none">
-          <!-- Description toggler for mobile & tablet screen -->
-          <button id="product-description-accordion-toggler" type="button" class="btn p-0 pt-2"
-            data-target="#product-description-accordion">Description <i class="fa-solid fa-caret-down"></i><i
-              class="fa-solid fa-caret-up"></i></button>
-          <p id="product-description-accordion" class="mt-3">{{ product.description }}</p>
-        </div>
+          <div class=" col-12 d-flex justify-content-between mt-3">
+            <button type="submit" class="btn btn-cta-light text-uppercase">Add to Cart</button>
+            <button type="submit" formaction="{% url 'buy_now' product.id %}"
+              class="btn btn-cta btn-cta-light text-uppercase">Buy
+              now!</button>
+          </div>
+          <input type="hidden" name="redirect_url" value="{{ request.path }}">
+      </div>
+      </form>
+      <div class="product-description d-xl-none">
+        <!-- Description toggler for mobile & tablet screen -->
+        <button id="product-description-accordion-toggler" type="button" class="btn p-0 pt-2"
+          data-target="#product-description-accordion">Description <i class="fa-solid fa-caret-down"></i><i
+            class="fa-solid fa-caret-up"></i></button>
+        <p id="product-description-accordion" class="mt-3">{{ product.description }}</p>
       </div>
     </div>
   </div>
@@ -73,6 +83,6 @@
 
 {% block postload_js %}
 {{ block.super }}
-<script src="{% static 'js/mobile_product_description.js' %}"></script>
+<script src="{% static 'products/js/mobile_product_description.js' %}"></script>
 <script src="{% static 'js/input_quantity.js' %}"></script>
 {% endblock postload_js %}

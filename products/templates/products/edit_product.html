@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'products/css/product_management.css' %}">
+{% endblock extra_css %}
+
+
+{% block page_header %}
+<div class="page-header"></div>
+{% endblock page_header %}
+
+{% block content %}
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col text-center mt-3">
+        <h2 class="title-inline">Product Management | </h2>
+        <h4 class="title-inline">Edit a Product</h4>
+        <hr class="w-50 m-auto mb-4">
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-6 col-lg-4">
+        <form action="{% url 'edit_product' product.id %}" method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          {% for field in form %}
+          {% if field.name != 'image' %}
+          {{ field | as_crispy_field }}
+          {% else %}
+          {{ field }}
+          {% endif %}
+          {% endfor %}
+          <div class="text-center text-md-end mt-4">
+            <a href="{% url 'products' %}" class="btn btn-cta-light">Cancel</a>
+            <button type="submit" class="btn btn-cta">Update Product</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock content %}
+
+{% block postload_js %}
+{{ block.super }}
+<script type="text/javascript">
+  $('#new-image').change(function () {
+    var file = $('#new-image')[0].files[0];
+    $('#filename').text(`Image will be set to: ${file.name}`);
+  });
+</script>
+{% endblock %}

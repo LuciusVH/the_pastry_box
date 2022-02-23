@@ -57,19 +57,49 @@ h6,
 
 /* ______ INPUTS ______ */
 
-.form-control:focus {
+input::placeholder,
+input::-ms-input-placeholder,
+input::-webkit-input-placeholder,
+.input-group input::placeholder {
+  color: hsla(210, 18%, 72%, 1) !important;
+}
+
+.form-control {
+  height: 40px;
+  padding: 10px 12px;
+  border: 1px solid transparent;
+  border-radius: var(--border-radius);
+  background-color: white;
+  box-shadow: 0 1px 3px 0 #e6ebf1;
+  transition: box-shadow 150ms ease;
+}
+
+.form-control:focus,
+.form-control:active {
   border-color: var(--color-primary);
   box-shadow: var(--box-shadow);
   transition: box-shadow 150ms ease;
+}
+
+.form-group {
+  padding-bottom: .5rem;
+}
+
+.newsletter-form .form-group {
+  padding-bottom: 0;
+}
+
+.form-group label:not([for='id_remember']):not([for='id_title']):not([for='id_content']) {
+  display: none;
 }
 
 .input-group {
   border: 1px solid transparent !important;
   border-radius: var(--border-radius);
   box-shadow: 0 1px 3px 0 #e6ebf1;
-  max-width: -webkit-fill-available;
+  /* max-width: -webkit-fill-available;
   width: -moz-available;
-  width: stretch;
+  width: stretch; */
 }
 
 .input-group input {
@@ -82,7 +112,11 @@ h6,
   z-index: 10;
 }
 
-.form-check-input:checked {
+.form-check {
+  display: inline-block;
+}
+
+input[type='checkbox']:checked {
   background-color: var(--color-primary);
   border-color: var(--color-primary);
 }
@@ -92,6 +126,9 @@ h6,
   box-shadow: none;
 }
 
+textarea.form-control {
+  min-height: calc(7.5em + 0.75rem + 2px);
+}
 
 /* ______ LINKS ______ */
 
@@ -162,13 +199,16 @@ button:active:not(.footer-block-item-title, #product-description-accordion-toggl
   z-index: 9999;
   border-radius: var(--border-radius) var(--border-radius) 0 0;
   background: var(--color-primary);
-  border: 1px solid var(--color-grey);
+  border: 1px solid transparent;
+  box-shadow: 0 1px 3px 2px #e6ebf1;
   border-bottom: 0;
   opacity: 0.4;
-  transition: opacity 150ms ease-in-out;
 }
 
-.btt-button:hover {
+.btt-button:hover,
+.btt-button:focus {
+  box-shadow: var(--box-shadow);
+  transition: all 150ms ease;
   opacity: 1;
 }
 
@@ -312,48 +352,6 @@ ul[aria-labelledby="dropdown-products"] a {
   }
 }
 
-
-/* ______ SIGN IN / SIGN UP DROPDOWN ______ */
-
-.signin-up-container {
-  position: relative;
-  height: 22rem;
-  overflow: hidden;
-  transition: all 250ms ease-in-out;
-}
-
-.signin-up-container .form-control {
-  width: 95%;
-  border-radius: var(--border-radius);
-  margin: 0 auto;
-}
-
-.form-signin {
-  position: absolute;
-}
-
-.form-signup {
-  position: absolute;
-  left: 100vw;
-}
-
-.form-signin,
-.form-signup {
-  transition: all 250ms ease-in-out;
-}
-
-@media screen and (min-width: 576px) {
-  .signin-up-container {
-    width: 50vw;
-    overflow: initial;
-  }
-
-  #navbarAccountDropdown .navbar-nav {
-    flex-direction: unset;
-  }
-}
-
-
 /* ______ DELIVERY BANNER ______ */
 
 #delivery-banner {
@@ -411,6 +409,10 @@ ul[aria-labelledby="dropdown-products"] a {
   background-color: white;
   border-radius: var(--border-radius);
   position: relative;
+}
+
+.img-fluid {
+  max-height: 13rem;
 }
 
 .desktop-description-container {
@@ -518,6 +520,21 @@ input.qtyminus {
   border-right: none !important;
 }
 
+.btn-file {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-file input[type="file"] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
 
 /* ______ TOASTS ______ */
 
@@ -567,6 +584,10 @@ footer form label {
   display: none;
 }
 
+.footer-block-item-title {
+  cursor: default;
+}
+
 .social-icon {
   width: 40px;
   height: 40px;
@@ -578,7 +599,14 @@ footer form label {
   vertical-align: middle;
   margin-right: 10px;
   color: var(--color-primary);
-  transition: all 0.35s ease-in-out;
+}
+
+.link-social {
+  transition: all 0.15s ease-in-out;
+}
+
+.link-social:hover {
+  transform: scale(1.20);
 }
 
 .fa-youtube {
@@ -592,11 +620,6 @@ footer form label {
 .credit-cards>span {
   margin-left: 5px;
 }
-
-/* 
-svg#amex {
-  margin-right: 0;
-} */
 
 @media screen and (min-width: 768px) {
   footer button:not(:disabled) {

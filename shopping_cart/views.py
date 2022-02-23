@@ -30,7 +30,33 @@ def add_to_shopping_cart(request, product_id):
             messages.success(request, f'Added {product.name} to your bag')
 
     request.session['shopping_cart'] = shopping_cart
+
     return redirect(redirect_url)
+
+
+def buy_now(request, product_id):
+    """
+    Add product x quantity to the shopping cart
+    and go straight to the checkout page
+    """
+
+    product = get_object_or_404(Product, pk=product_id)
+    quantity = int(request.POST.get('quantity'))
+    shopping_cart = request.session.get('shopping_cart', {})
+
+    if quantity != 0:
+        if product_id in list(shopping_cart.keys()):
+            shopping_cart[product_id] += quantity
+            messages.success(request, f'Updated {product.name} quantity to \
+              {shopping_cart[product_id]}', extra_tags='buying_now')
+        else:
+            shopping_cart[product_id] = quantity
+            messages.success(request, f'Added {product.name} to your bag',
+                             extra_tags='buying_now')
+
+    request.session['shopping_cart'] = shopping_cart
+
+    return redirect('checkout')
 
 
 def adjust_shopping_cart(request, product_id):
@@ -58,7 +84,6 @@ def remove_from_shopping_cart(request, product_id):
     try:
         product = get_object_or_404(Product, pk=product_id)
         shopping_cart = request.session.get('shopping_cart', {})
-        print(shopping_cart)
 
         shopping_cart.pop(product_id)
 
