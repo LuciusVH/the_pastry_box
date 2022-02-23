@@ -17,6 +17,7 @@ gunicorn = "*"
 boto3 = "*"
 django-storages = "*"
 django-pandas = "*"
+numpy = "*"
 
 [dev-packages]
 
