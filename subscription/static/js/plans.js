@@ -33,7 +33,6 @@ fetch('/subscription/config/')
         // Get Checkout Session ID depending on the selected plan
         fetch(`create-checkout-session/${chosenPlan}/`)
           .then((result) => {
-            console.log(result.json());
             return result.json();
           })
           .then((data) => {
