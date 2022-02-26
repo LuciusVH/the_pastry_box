@@ -34,7 +34,7 @@ def profile(request):
         stripe_customer = StripeCustomer.objects.get(user=request.user)
         stripe.api_key = settings.STRIPE_SECRET_KEY
         subscription = stripe.Subscription.retrieve(
-            stripe_customer.stripeSubscriptionId)
+            stripe_customer.stripe_subscription_id)
         plan = stripe.Product.retrieve(subscription.plan.product)
 
         template = 'profiles/profile.html'

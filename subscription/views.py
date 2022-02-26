@@ -58,7 +58,7 @@ def subscription_success(request):
 @csrf_exempt
 def subscription_webhook(request):
     stripe.api_key = settings.STRIPE_SECRET_KEY
-    wh_secret = settings.STRIPE_WEBHOOK_SECRET
+    wh_secret = settings.STRIPE_SUBSCRIPTION_WEBHOOK_SECRET
     payload = request.body
     sig_header = request.META['HTTP_STRIPE_SIGNATURE']
     event = None
@@ -69,10 +69,15 @@ def subscription_webhook(request):
         )
     except ValueError as e:
         # Invalid payload
+        print("ValueError:", e)
         return HttpResponse(status=400)
     except stripe.error.SignatureVerificationError as e:
         # Invalid signature
+        print("SigError:", e)
         return HttpResponse(status=400)
+    except Exception as e:
+        print("ExceptError:", e)
+        return HttpResponse(content=e, status=400)
 
     # Handle the checkout.session.completed event
     if event['type'] == 'checkout.session.completed':
@@ -87,9 +92,8 @@ def subscription_webhook(request):
         user = User.objects.get(id=client_reference_id)
         StripeCustomer.objects.create(
             user=user,
-            stripeCustomerId=stripe_customer_id,
-            stripeSubscriptionId=stripe_subscription_id,
+            stripe_customer_id=stripe_customer_id,
+            stripe_subscription_id=stripe_subscription_id,
         )
-        print(user.username + ' just subscribed.')
 
     return HttpResponse(status=200)
