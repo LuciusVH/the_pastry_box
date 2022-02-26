@@ -41,16 +41,13 @@ fetch('/subscription/config/')
             return result.json();
           })
           .then((data) => {
-            console.log(data);
             // Redirect to Stripe Checkout
-            console.log(data.sessionId);
             return stripe.redirectToCheckout({
               sessionId: data.sessionId
             })
           })
-          .then((res) => {
-            console.log(res);
-          });
+          .catch(error => console.log(error))
       });
     }
-  });
+  })
+  .catch(error => console.log(error));
