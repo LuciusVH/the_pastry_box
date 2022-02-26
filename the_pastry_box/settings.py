@@ -112,6 +112,7 @@ AUTHENTICATION_BACKENDS = [
 
 SITE_ID = 1
 
+
 # Email
 if not DEBUG:
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -122,6 +123,7 @@ if not DEBUG:
     EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 else:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 
 # Authentification
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
@@ -192,6 +194,9 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static/'),)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+
+# AMAZON WEB SERVICES
+
 if 'USE_AWS' in os.environ:
     # Cache control
     AWS_S3_OBJECT_PARAMETERS = {
@@ -216,15 +221,18 @@ if 'USE_AWS' in os.environ:
     STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
 
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+
 # Delivery params
 
 FREE_DELIVERY_THRESHOLD = 50
 STANDARD_DELIVERY_PERCENTAGE = 10
+
 
 # STRIPE
 
@@ -233,3 +241,11 @@ STRIPE_SECRET_KEY = env('STRIPE_SECRET_KEY')
 STRIPE_WEBHOOK_SECRET = env('STRIPE_WEBHOOK_SECRET')
 STRIPE_CURRENCY = 'eur'
 DEFAULT_FROM_EMAIL = env('EMAIL_HOST_USER')
+
+
+# DOMAIN URL
+
+if not DEBUG:
+    DOMAIN_URL = 'https://thepastrybox.herokuapp.com/'
+else:
+    DOMAIN_URL = 'http://localhost:8000/'

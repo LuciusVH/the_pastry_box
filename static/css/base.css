@@ -96,10 +96,6 @@ input::-webkit-input-placeholder,
 .input-group {
   border: 1px solid transparent !important;
   border-radius: var(--border-radius);
-  box-shadow: 0 1px 3px 0 #e6ebf1;
-  /* max-width: -webkit-fill-available;
-  width: -moz-available;
-  width: stretch; */
 }
 
 .input-group input {
@@ -109,6 +105,8 @@ input::-webkit-input-placeholder,
   border-right-style: solid;
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
   z-index: 10;
 }
 

@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/plans.css' %}">
+{% endblock extra_css %}
+
+{% block page_header %}
+<div class="page-header"></div>
+{% endblock page_header %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col text-center mt-3">
+      <h2>Subscription</h2>
+      <hr class="w-50 m-auto mb-4">
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-5 col-lg-4">
+      <p>Description</p>
+    </div>
+    <div class="col-12 col-md-7 col-lg-4">
+      <div class="product-details-container mb-5 my-md-3">
+        <form class="form" action="" method="POST">
+          {% csrf_token %}
+          <div class="form-row d-flex flex-column flex-md-row justify-content-evenly text-center mb-5">
+            {% for plan in plans %}
+            <div class="col-12 col-md-5 {% if forloop.first %}py-4 py-md-0{% endif %}">
+              <label for="{{ plan.stripe_price_id }}" class="radio-btn">
+                <input type="radio" name="plan_subscription" id="{{ plan.stripe_price_id }}"
+                  value="{{ plan.stripe_price_id }}" {% if forloop.first %}checked{% endif %} />
+                <div class="card h-100 shadow-sm border">
+                  <div class="card-header plan-name">
+                    <p class="mb-0 fs-6">{{ plan.name }}</p>
+                    {% if forloop.last %}
+                    <div class="discount small">1 month for free</div>
+                    {% endif %}
+                  </div>
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col">
+                        {% if forloop.last %}
+                        <p class="mb-0 regular-price text-secondary">432€</p>
+                        {% endif %}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-footer bg-white pt-0 border-0">
+                    <div class="row">
+                      <div class="col">
+                        <p class="lead mb-0">{{ plan.displayed_price }}€</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </label>
+            </div>
+            {% endfor %}
+          </div>
+          <div class="form-row">
+            <div class="col-12 mt-3 text-center">
+              <button type="submit" id="plans-submit-btn" data-plan="price_1KTNtjKBwtRGPDpB0CyfyR7R"
+                class="btn btn-cta text-uppercase">Subscribe</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
+
+{% block postload_js %}
+{{ block.super }}
+<script src="{% static 'js/plans.js' %}"></script>
+{% endblock postload_js %}
