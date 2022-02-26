@@ -1,12 +1,15 @@
 from django.shortcuts import get_object_or_404, render
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.core.paginator import Paginator
+from django.conf import settings
+
+from datetime import datetime
 
 from .models import UserProfile
 from .forms import UserProfileForm
 from checkout.models import Order
 from subscription.models import StripeCustomer
-from django.conf import settings
 
 import stripe
 
@@ -36,14 +39,20 @@ def profile(request):
         subscription = stripe.Subscription.retrieve(
             stripe_customer.stripe_subscription_id)
         plan = stripe.Product.retrieve(subscription.plan.product)
+        plan_subscription = datetime.fromtimestamp(plan.created)
+
+        pagination = Paginator(orders, 5)
+        page = request.GET.get('page')
+        orders_list = pagination.get_page(page)
 
         template = 'profiles/profile.html'
         context = {
             'form': form,
-            'orders': orders,
+            'orders': orders_list,
             'on_profile_page': True,
             'subscription': subscription,
             'plan': plan,
+            'plan_subscription': plan_subscription,
         }
 
         return render(request, template, context)
@@ -57,7 +66,6 @@ def profile(request):
         }
 
         return render(request, template, context)
-
 
 
 def order_history(request, order_number):

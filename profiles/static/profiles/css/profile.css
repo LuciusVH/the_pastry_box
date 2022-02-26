@@ -10,3 +10,8 @@
 #id_default_country option:not(:first-child) {
   color: #000;
 }
+
+#user-orders,
+#user-subscription {
+  height: fit-content !important;
+}
