@@ -37,7 +37,7 @@ def newsletter_subscription(request):
             if form.is_valid():
                 form.save()
                 messages.success(request, "Thank you for your subscription 📧")
-                return redirect(same_url, no_cart='True')
+                return redirect(same_url)
     else:
         form = NewsletterSubscriptionForm()
 

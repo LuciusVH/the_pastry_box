@@ -1,0 +1,50 @@
+.plan-name {
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: white;
+}
+
+.discount {
+  position: absolute;
+  top: 4rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: max-content;
+  border: 1px solid rgba(0, 0, 0, .125);
+  border-radius: var(--border-radius);
+  background: var(--color-primary);
+  padding: 0 .4rem;
+  color: var(--color-text);
+}
+
+.regular-price {
+  text-decoration: line-through;
+}
+
+.radio-btn input {
+  display: none;
+}
+
+.card {
+  transition: all 80ms ease-in-out;
+  width: 9rem;
+}
+
+.card-header {
+  background-color: hsl(224.9, 100%, 32%);
+}
+
+.card-body {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  height: 4rem;
+}
+
+.radio-btn input:checked+.card {
+  transform: scale(1.2);
+  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
+}

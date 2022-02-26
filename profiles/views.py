@@ -5,6 +5,10 @@ from django.contrib import messages
 from .models import UserProfile
 from .forms import UserProfileForm
 from checkout.models import Order
+from subscription.models import StripeCustomer
+from django.conf import settings
+
+import stripe
 
 # Create your views here.
 
@@ -25,15 +29,35 @@ def profile(request):
     else:
         form = UserProfileForm(instance=profile)
     orders = profile.orders.all()
+    try:
+        # Retrieve the subscription & product
+        stripe_customer = StripeCustomer.objects.get(user=request.user)
+        stripe.api_key = settings.STRIPE_SECRET_KEY
+        subscription = stripe.Subscription.retrieve(
+            stripe_customer.stripeSubscriptionId)
+        plan = stripe.Product.retrieve(subscription.plan.product)
 
-    template = 'profiles/profile.html'
-    context = {
-        'form': form,
-        'orders': orders,
-        'on_profile_page': True
-    }
+        template = 'profiles/profile.html'
+        context = {
+            'form': form,
+            'orders': orders,
+            'on_profile_page': True,
+            'subscription': subscription,
+            'plan': plan,
+        }
 
-    return render(request, template, context)
+        return render(request, template, context)
+
+    except StripeCustomer.DoesNotExist:
+        template = 'profiles/profile.html'
+        context = {
+            'form': form,
+            'orders': orders,
+            'on_profile_page': True
+        }
+
+        return render(request, template, context)
+
 
 
 def order_history(request, order_number):
