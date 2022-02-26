@@ -128,6 +128,11 @@ textarea.form-control {
   min-height: calc(7.5em + 0.75rem + 2px);
 }
 
+.radio-btn {
+  cursor: pointer;
+}
+
+
 /* ______ LINKS ______ */
 
 a:not(.nav-link, .dropdown-item, .link-social, .card-image-wrapper a, .btt-link, .category-link, .btn),
@@ -152,6 +157,12 @@ a:active:not(.nav-link, .dropdown-item, .link-social, .card-image-wrapper a, .bt
   color: var(--color-text);
   background-position-y: 0;
   background-size: 100% 87%;
+  cursor: pointer;
+}
+
+a.card {
+  text-decoration: none !important;
+  background-image: none !important;
   cursor: pointer;
 }
 

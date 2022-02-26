@@ -1,10 +1,10 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import get_object_or_404, render, redirect, reverse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
 from django_pandas.io import read_frame
 
-from .models import Subscriber
+from .models import NewsletterContent, Subscriber
 from .forms import NewsletterSubscriptionForm, NewsletterContentForm
 
 # Create your views here.
@@ -80,3 +80,26 @@ def send_newsletter(request):
             'form': form,
         }
         return render(request, template, context)
+
+
+def display_recipes(request):
+    newsletters = NewsletterContent.objects.all()
+
+    template = 'newsletter/recipes.html'
+    context = {
+        'newsletters': newsletters,
+    }
+
+    return render(request, template, context)
+
+
+def recipe_detail(request, post_id):
+    """ A view to show individual product details """
+
+    post = get_object_or_404(NewsletterContent, pk=post_id)
+
+    context = {
+        'post': post,
+    }
+
+    return render(request, 'newsletter/recipe_detail.html', context)
