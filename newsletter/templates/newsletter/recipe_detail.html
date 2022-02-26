@@ -15,7 +15,7 @@
         <p class="small mt-1 mb-4 text-secondary">{{ post.date | date:'F j, Y - G:i' }}</p>
       </div>
       <div class="mb-5">
-        {{ post.content }}
+        {{ post.content|safe }}
       </div>
     </div>
   </div>

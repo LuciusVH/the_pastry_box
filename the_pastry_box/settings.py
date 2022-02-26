@@ -59,7 +59,8 @@ INSTALLED_APPS = [
     'contact',
     'crispy_forms',
     'django_countries',
-    'storages'
+    'storages',
+    'ckeditor',
 ]
 
 MIDDLEWARE = [
