@@ -31,13 +31,19 @@ fetch('/subscription/config/')
         e.preventDefault();
         let chosenPlan = submitBtn.dataset.plan;
         // Get Checkout Session ID depending on the selected plan
-        fetch(`create-checkout-session/${chosenPlan}/`)
+        fetch(`create-checkout-session/${chosenPlan}/`, {
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            }
+          })
           .then((result) => {
             return result.json();
           })
           .then((data) => {
             console.log(data);
             // Redirect to Stripe Checkout
+            console.log(data.sessionId);
             return stripe.redirectToCheckout({
               sessionId: data.sessionId
             })

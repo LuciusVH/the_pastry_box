@@ -2,7 +2,6 @@ from django.shortcuts import redirect, render, reverse
 from django.conf import settings
 from django.http.response import JsonResponse, HttpResponse
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 
 import stripe
@@ -27,7 +26,6 @@ def stripe_config(request):
         return JsonResponse(stripe_config)
 
 
-@login_required
 def create_checkout_session(request, price_id):
     if request.method == 'GET':
         domain_url = settings.DOMAIN_URL
