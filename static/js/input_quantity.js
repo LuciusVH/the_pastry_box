@@ -7,9 +7,9 @@ jQuery(document).ready(function () {
     // Stop acting like a button
     e.preventDefault();
     // Get the field name
-    fieldName = $(this).attr('field');
+    let fieldName = $(this).attr('field');
     // Get its current value
-    var currentVal = parseInt($(this).siblings('input[name=' + fieldName + ']').val());
+    let currentVal = parseInt($(this).siblings('input[name=' + fieldName + ']').val());
     // If is not undefined and it's smaller than 99
     if (!isNaN(currentVal) && currentVal < 99) {
       // Increment
@@ -24,9 +24,9 @@ jQuery(document).ready(function () {
     // Stop acting like a button
     e.preventDefault();
     // Get the field name
-    fieldName = $(this).attr('field');
+    let fieldName = $(this).attr('field');
     // Get its current value
-    var currentVal = parseInt($(this).siblings('input[name=' + fieldName + ']').val());
+    let currentVal = parseInt($(this).siblings('input[name=' + fieldName + ']').val());
     // If it isn't undefined and it's greater than 1
     if (!isNaN(currentVal) && currentVal > 0) {
       // Decrement one

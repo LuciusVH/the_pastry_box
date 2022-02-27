@@ -24,8 +24,8 @@ $(document).ready(() => {
           $(toggler).children('.fa-caret-down').fadeIn(150);
         });
       }
-    })
+    });
   } else {
     $('.footer-block-item-content').show();
   }
-})
+});
