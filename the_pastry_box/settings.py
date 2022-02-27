@@ -73,6 +73,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+
 ROOT_URLCONF = 'the_pastry_box.urls'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
