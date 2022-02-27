@@ -37,9 +37,9 @@
           <div class="col-2 mb-1 pe-0 pe-md-2">
             <div class="d-flex align-items-center card-image-wrapper border">
               {% if item.product.image %}
-              <img class="img-fluid" src="{{ item.product.image.url }}">
+              <img class="img-fluid" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
               {% else %}
-              <img class="img-fluid" src="{{ MEDIA_URL }}noimage.png">
+              <img class="img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}">
               {% endif %}
             </div>
           </div>
@@ -131,7 +131,6 @@
         </form>
       </div>
     </div>
-  </div>
   </div>
 </section>
 {% endblock content %}

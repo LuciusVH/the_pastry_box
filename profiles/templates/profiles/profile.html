@@ -75,10 +75,10 @@
           {% comment %} Orders pagination {% endcomment %}
           <div class="small">
             {% if orders.has_previous %}
-            <a href="?page=1">&laquo First</a> &#8226;
+            <a href="?page=1">&laquo; First</a> &#8226;
             <a href="?page={{ orders.previous_page_number }}" class="me-2">Previous</a>
             {% else %}
-            <span class="text-muted">&laquo First &#8226;</span>
+            <span class="text-muted">&laquo; First &#8226;</span>
             <span class="me-2 text-muted">Previous</span>
             {% endif %}
 
@@ -86,10 +86,10 @@
 
             {% if orders.has_next %}
             <a href="?page={{ orders.next_page_number }}" class="ms-2">Next</a> &#8226;
-            <a href="?page={{ orders.paginator.num_pages }}">Last &raquo</a>
+            <a href="?page={{ orders.paginator.num_pages }}">Last &raquo;</a>
             {% else %}
             <span class="ms-2 text-muted">Next &#8226;</span>
-            <span class="text-muted">Last &raquo</span>
+            <span class="text-muted">Last &raquo;</span>
             {% endif %}
           </div>
         </div>

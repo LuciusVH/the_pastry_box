@@ -27,9 +27,9 @@
       <div class="col-3 col-md-2 col-lg-1">
         <div class="d-flex align-items-center card-image-wrapper border">
           {% if item.product.image %}
-          <img class="img-fluid" src="{{ item.product.image.url }}">
+          <img class="img-fluid" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
           {% else %}
-          <img class="img-fluid" src="{{ MEDIA_URL }}noimage.png">
+          <img class="img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}">
           {% endif %}
         </div>
       </div>
@@ -94,8 +94,6 @@
     <span class="text-uppercase">Keep Shopping</span>
   </a>
   {% endif %}
-  </div>
-  </div>
 </section>
 {% endblock content %}
 

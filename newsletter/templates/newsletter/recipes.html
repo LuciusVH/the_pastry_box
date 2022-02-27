@@ -23,7 +23,7 @@
             <div class="card-body pb-0">
               <h4 class="card-title">{{ post.title }}</h4>
               <p class="card-subtitle mb-2 text-muted">{{ post.date | date:'F j, Y - G:i' }}</p>
-              <p class="card-text mb-3">{{ post.content|safe|truncatewords:10 }}</p>
+              <p class="card-text mb-3">{{ post.content|truncatewords:10 | safe }}</p>
             </div>
           </a>
         </div>

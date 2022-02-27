@@ -127,6 +127,7 @@ As a store owner, I want to...
 
 - [Github](https://github.com/)
 - [Heroku](https://www.heroku.com/)
+- [AWS](https://aws.amazon.com/) 
 - [Git](https://git-scm.com/)
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [Bootstrap 5.1](https://getbootstrap.com/docs/5.1/getting-started/introduction/)
@@ -145,7 +146,35 @@ As a store owner, I want to...
 
 ### HTML Validator ([W3C](https://validator.w3.org/))
 
+The W3C validator being [unaccessible](https://github.com/LuciusVH/the_pastry_box/blob/main/docs/readme_files/w3c-validator-503.png) at the moment, I'm using [this one](https://www.freeformatter.com/html-validator.html) instead.
+
+- When testing my [products page](https://thepastrybox.herokuapp.com/products/), some of the errors were as below. I honestly have no idea what that means and Google did not provide me much more info. Given the fact that the validator did not provide me any code extract, I chose to leave these errors as they are.
+
+  <p align="center">
+      <img src="https://github.com/LuciusVH/the_pastry_box/blob/main/docs/readme_files/html-validator-errors.png" alt="error img"/>
+    </p>
+
+- When testing product detail page & shopping cart, these errors appear. This snippet has been taken from this [JSFiddle](https://jsfiddle.net/puJ6G/2457/) and the [JS file](https://github.com/LuciusVH/the_pastry_box/blob/main/static/js/input_quantity.js) working with depends on these `field` attributes.
+
+  <p align="center">
+      <img src="https://github.com/LuciusVH/the_pastry_box/blob/main/docs/readme_files/field_attribute.png" alt="error img"/>
+    </p>
+
+- On the checkout page, the spinner inside the submit button is a code snippet taken from Stripe.
+
+  <p align="center">
+      <img src="https://github.com/LuciusVH/the_pastry_box/blob/main/docs/readme_files/div-inside-button.png" alt="error img"/>
+    </p>
+
+- Still the checkout page, there are two duplicate IDs, from email fields: one from the customer detail form, one from the newsletter subscription form in the footer. These IDs are set by crispy form.
+
+  <p align="center">
+      <img src="https://github.com/LuciusVH/the_pastry_box/blob/main/docs/readme_files/duplicate-id.png" alt="error img"/>
+    </p>
+
 - 
+
+
 
 ### CSS Validator ([W3C](https://jigsaw.w3.org/css-validator/validator.html))
 
