@@ -42,7 +42,7 @@ h6,
 .h6 {
   font-family: var(--font-title);
   color: var(--color-primary);
-  text-shadow: 0px 0px 4px black;
+  text-shadow: 0 0 4px black;
 }
 
 .text-black {
@@ -61,6 +61,8 @@ input::placeholder,
 input::-ms-input-placeholder,
 input::-webkit-input-placeholder,
 .input-group input::placeholder {
+  color: #abb8c4;
+  /* Fallback color for IE */
   color: hsla(210, 18%, 72%, 1) !important;
 }
 
@@ -238,7 +240,7 @@ button:active:not(.footer-block-item-title, #product-description-accordion-toggl
 
 .logo {
   color: var(--color-primary);
-  text-shadow: 0px 0px 4px black;
+  text-shadow: 0 0 4px black;
   margin: 0 .5rem;
 }
 
@@ -292,7 +294,7 @@ nav form {
   border-radius: var(--border-radius) !important;
   border: 1px solid var(--color-grey);
   background-color: var(--color-background);
-  box-shadow: 0px 0px 3px var(--color-grey);
+  box-shadow: 0 0 3px var(--color-grey);
   transition: box-shadow 150ms ease;
 }
 
@@ -401,7 +403,7 @@ ul[aria-labelledby="dropdown-products"] a {
   text-align: center;
   font-size: 3vh;
   color: white;
-  text-shadow: 0px 0px 4px black;
+  text-shadow: 0 0 4px black;
 }
 
 .hero-text h1 {
@@ -427,7 +429,6 @@ ul[aria-labelledby="dropdown-products"] a {
 .desktop-description-container {
   overflow: hidden;
   position: absolute;
-  inset: 0;
   z-index: 1;
   border-radius: var(--border-radius);
 }
