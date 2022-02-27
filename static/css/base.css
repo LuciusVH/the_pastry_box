@@ -98,6 +98,7 @@ input::-webkit-input-placeholder,
 .input-group {
   border: 1px solid transparent !important;
   border-radius: var(--border-radius);
+  width: auto;
 }
 
 .input-group input {
@@ -312,6 +313,11 @@ ul[aria-labelledby="dropdown-products"] a {
 @media screen and (max-width: 1200px) {
   :root {
     --navbar-height: 51px;
+  }
+
+  #mobile-navbar {
+    padding: .5rem;
+    background-color: var(--color-background);
   }
 
   .toggle-logo,

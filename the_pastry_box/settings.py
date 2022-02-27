@@ -249,7 +249,7 @@ DEFAULT_FROM_EMAIL = env('EMAIL_HOST_USER')
 
 # DOMAIN URL
 
-# if not DEBUG:
-DOMAIN_URL = 'https://thepastrybox.herokuapp.com/'
+# if DEBUG:
+DOMAIN_URL = 'http://localhost:8000/'
 # else:
-#     DOMAIN_URL = 'http://localhost:8000/'
+#     DOMAIN_URL = 'https://thepastrybox.herokuapp.com/'
