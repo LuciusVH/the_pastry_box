@@ -399,7 +399,8 @@ All steps for deployment, cloning, setting up can be found [here](https://github
 
 ### Content
 
-- Products description have usually be taken from other websites selling the items, sometimes translated when not in English originally. 
+- Products description have usually be taken from other websites selling the items, sometimes translated when not in English originally.
+- The cookies recipe is from [BBC Good Food](https://www.bbcgoodfood.com/recipes/chocolate-chunk-cookies).
 - The rest of the content was written by myself.
 
 ### Media
