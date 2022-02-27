@@ -3,6 +3,8 @@
 }
 
 #profile-update-form input::placeholder {
+  color: #abb8c4;
+  /* Fallback color for IE */
   color: hsla(210, 18%, 72%, 1);
 }
 
