@@ -11,7 +11,7 @@ $('input[name="plan_subscription"').change(function () {
     default:
       submitBtn.dataset.plan = 'price_1KTNtjKBwtRGPDpB0CyfyR7R';
   }
-})
+});
 
 
 // Get Stripe publishable key
@@ -44,9 +44,9 @@ fetch('/subscription/config/')
             // Redirect to Stripe Checkout
             return stripe.redirectToCheckout({
               sessionId: data.sessionId
-            })
+            });
           })
-          .catch(error => console.log(error))
+          .catch(error => console.log(error));
       });
     }
   })
