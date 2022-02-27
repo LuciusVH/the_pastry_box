@@ -31,7 +31,7 @@
               <label for="{{ plan.stripe_price_id }}" class="radio-btn">
                 <input type="radio" name="plan_subscription" id="{{ plan.stripe_price_id }}"
                   value="{{ plan.stripe_price_id }}" {% if forloop.first %}checked{% endif %} />
-                <div class="card h-100 shadow-sm border">
+                <span class="card h-100 shadow-sm border">
                   <div class="card-header plan-name">
                     <p class="mb-0 fs-6">{{ plan.name }}</p>
                     {% if forloop.last %}
@@ -54,7 +54,7 @@
                       </div>
                     </div>
                   </div>
-                </div>
+                </span>
               </label>
             </div>
             {% endfor %}
