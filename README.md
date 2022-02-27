@@ -153,6 +153,8 @@ View the tested user stories [here](https://github.com/LuciusVH/the_pastry_box#t
 - A reward system, like 4 different levels based on the amount spent throught the year, with a gift at each level.
 - A review system for at least the Subscription plan, to incitate more engagement. Potentially for each product?
 - A video section, accessible from the Profile page if you have subscribed to a plan. Video of recipe step-by-step.
+- Special instructions when ordering.
+- Possibility to gift the subscription to someone and have it activated later on.
 
 
 
