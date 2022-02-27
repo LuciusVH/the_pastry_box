@@ -24,7 +24,7 @@
 
   <div class="row pb-2">
     {% comment %} User details {% endcomment %}
-    <div class="col-12 col-lg-6">
+    <div id="delivery-info" class="col-12 col-lg-6">
       <p class="text-muted">Default Delivery Information</p>
       <form class="mt-2" action="{% url 'profile' %}" method="POST" id="profile-update-form">
         {% csrf_token %}
@@ -34,47 +34,83 @@
         </div>
       </form>
     </div>
-    {% comment %} User orders {% endcomment %}
-    <div class="col-12 col-lg-6">
-      <p class="text-muted">Order History</p>
-      <div class="order-history table-responsive">
-        <table class="table table-sm table-borderless">
-          <thead>
-            <tr>
-              <th>Order</th>
-              <th>Date</th>
-              <th>Items</th>
-              <th>Total</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for order in orders %}
-            <tr>
-              <td>
-                <a href="{% url 'order_history' order.order_number %}" title="{{ order.order_number }}">
-                  {{ order.order_number|truncatechars:6 }}
-                </a>
-              </td>
-              <td>{{ order.date | date:"SHORT_DATE_FORMAT" }}</td>
-              <td>
-                <ul class="list-unstyled">
-                  {% for item in order.lineitems.all %}
-                  <li class="small">
-                    <a href="{% url 'product_detail' item.product.id %}">{{ item.product.name }}</a>
-                    x{{ item.quantity }}
-                  </li>
-                  {% endfor %}
-                </ul>
-              </td>
-              <td>{{ order.grand_total }}€</td>
-            </tr>
-            {% endfor %}
-          </tbody>
-        </table>
+    <div class="col-12 col-lg-6 d-flex flex-column justify-content-between">
+      {% comment %} User orders {% endcomment %}
+      <div id="user-orders" class="col-12">
+        <p class="text-muted">Order History</p>
+        <div class="order-history table-responsive">
+          <table class="table table-sm table-borderless">
+            <thead>
+              <tr>
+                <th>Order</th>
+                <th>Date</th>
+                <th>Items</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for order in orders %}
+              <tr>
+                <td>
+                  <a href="{% url 'order_history' order.order_number %}" title="{{ order.order_number }}">
+                    {{ order.order_number|truncatechars:6 }}
+                  </a>
+                </td>
+                <td>{{ order.date | date:"SHORT_DATE_FORMAT" }}</td>
+                <td>
+                  <ul class="list-unstyled">
+                    {% for item in order.lineitems.all %}
+                    <li class="small">
+                      <a href="{% url 'product_detail' item.product.id %}">{{ item.product.name }}</a>
+                      x{{ item.quantity }}
+                    </li>
+                    {% endfor %}
+                  </ul>
+                </td>
+                <td>{{ order.grand_total }}€</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          {% comment %} Orders pagination {% endcomment %}
+          <div class="small">
+            {% if orders.has_previous %}
+            <a href="?page=1">&laquo First</a> &#8226;
+            <a href="?page={{ orders.previous_page_number }}" class="me-2">Previous</a>
+            {% else %}
+            <span class="text-muted">&laquo First &#8226;</span>
+            <span class="me-2 text-muted">Previous</span>
+            {% endif %}
+
+            <span>Page {{ orders.number }} of {{ orders.paginator.num_pages }}</span>
+
+            {% if orders.has_next %}
+            <a href="?page={{ orders.next_page_number }}" class="ms-2">Next</a> &#8226;
+            <a href="?page={{ orders.paginator.num_pages }}">Last &raquo</a>
+            {% else %}
+            <span class="ms-2 text-muted">Next &#8226;</span>
+            <span class="text-muted">Last &raquo</span>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      {% comment %} Subscription {% endcomment %}
+      <div id="user-subscription" class="col-12">
+        <p class="text-muted">Subscription</p>
+        {% if plan %}
+        <p class="pt-1">You have subscribed to {{ plan.name }}, since {{ plan_subscription|date }}.</p>
+        <p>Click <a href="{% url 'stripe_customer_portal' %}">here</a> to manage your subscription. Note that we don't
+          issue refund. You will keep receiving your box up until the planned end of your subscription.</p>
+        <p><a href="{% url 'contact' %}">Contact us</a> if you have any question 😉</p>
+        {% else %}
+        <p class="pt-1">You don't have any subscription.</p>
+        <div class="text-center text-md-end mt-4">
+          <button class="btn btn-cta-light text-uppercase">Check our Subscription offers</button>
+        </div>
+        {% endif %}
       </div>
     </div>
   </div>
-</div>
 </div>
 {% endblock %}
 
