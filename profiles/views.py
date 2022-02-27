@@ -1,4 +1,4 @@
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.core.paginator import Paginator
@@ -78,3 +78,16 @@ def order_history(request, order_number):
     }
 
     return render(request, template, context)
+
+
+def stripe_customer_portal(request):
+    stripe_customer = get_object_or_404(StripeCustomer, user=request.user)
+
+    stripe_customer_id = stripe_customer.stripe_customer_id
+
+    session = stripe.billing_portal.Session.create(
+        customer=stripe_customer_id,
+        return_url='https://thepastrybox.herokuapp.com/profile/',
+    )
+
+    return redirect(session.url)
