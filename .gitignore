@@ -1,4 +1,4 @@
-docs/
+docs/*.txt
 .venv/
 *.sqlite3
 *.pyc
