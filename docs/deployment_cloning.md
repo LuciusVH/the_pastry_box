@@ -125,7 +125,7 @@ Steps:
 1. After you've copied the HTTPS or SSH link, located under the Code dropdown button on [The Pastry Box GitHub page](https://github.com/LuciusVH/the_pastry_box).
 2. Open your preferred IDE, create a virtual environment and activate it.
 3. Run the command `git clone` + the link you've copied on step #1.
-4. Create your environment file `env.py` and add the variables detailed above.
+4. Create your environment file `env.py` and add the variables detailed [above](https://github.com/LuciusVH/the_pastry_box/blob/main/docs/deployment_cloning.md#environment-variables).
 5. Create a `.gitignore` file and add it your `env.py`.
 6. Install all the requirements: open the terminal and run `pip3 install -r requirements.txt`.
 7. Migrate the database models by typing `python3 manage.py makemigrations` & `python3 manage.py migrate`.

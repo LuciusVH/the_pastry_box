@@ -6,7 +6,7 @@ Bonjour and welcome! :v:
 
 This is a website created as my fourth and final Milestone Project for the Full Stack Developer Course of [Code Institute](https://codeinstitute.net/), after completing the 4 modules : User Centric Front End Development, Interactive Frontend Development, Backend Development & Full Stack Frameworks With Django. 
 
-You can find the deployed site [here](). **[LINK TO BE UPDATED]**
+You can find the deployed site [here](https://thepastrybox.herokuapp.com/).
 
 > **NOTE:** The links included in this README will not automatically open in a new tab. Press CTRL or Cmd + click on the link to open the target in a new tab.
 
@@ -40,7 +40,7 @@ You can find the deployed site [here](). **[LINK TO BE UPDATED]**
 
 Seeing all these "box" concepts and subscription plans popping out everywhere like champagne out of a shaken bottle :champagne: (gotta be Frenchie :fr:!), yes I'm talking about streaming pay-and-view-it-all plans and other box you receive at home containing ingredients and recipes for the week or beauty product for the month... I had the idea to surf on the wave but add it one of my hobby: pastry & baking :cake:
 
-The basic concept is then pretty simple and not so original: for a monthly or annual fee :moneybag:, you'd receive at your chosen address one box every month :package: containing a pastry recipe, the tools and potentially some ingredients to make the recipe. Depending on the month, the recipe and box could be themed, e.g. Valentine's day :heart:, Pink October :ribbon:, Christmas :christmas_tree:... You get the idea. 
+The basic concept is then pretty simple and not so original: for a monthly or annual fee :moneybag:, you'd receive at your chosen address one box every month :package: containing a detailed pastry recipe, the tools and potentially some ingredients to make the recipe. Depending on the month, the recipe and box could be themed, e.g. Valentine's day :heart:, Pink October :ribbon:, Christmas :christmas_tree:... You get the idea. 
 
 Added to this base concept would be a regular online store dedicated to pastry, bakery and chocolate work where you can find and buy most of the things you may need: plenty moulds, kitchen utensils, pastry rings, baking mats, maybe also a few dry ingredients :chocolate_bar: and why not even appliances, like stand-mixers?
 
@@ -48,19 +48,19 @@ Finally, a blog where some amazing recipes would be uploaded for everyone to enj
 
 ### 	Structure & Design
 
-The website is structured as a multi-pages site and mainly divided in two apps: the e-commerce and the blog. 
+The website is structured as a multi-pages site. 
 
-The e-commerce app allows the user to subscribe to the box but also to purchase individual items, while the blog simply lists recipes.
+The e-commerce part allows the user to subscribe to the box but also to purchase individual items, while the blog simply lists the sent newsletter, which are primarly recipes.
 
-The primary color is a beautiful and deep yellow (#FFD75E) :yellow_heart: which I chose because I wanted a bright color, related to pastry but still natural. If you think pastry, of course you can find cakes and icing of any possible colors thanks to food colorants but... Unless you are 6yo, food-wise you tend to be more attracted to natural colors like red, yellow or green for example. There is a reason why you don't see much blue or purple on food packaging. Green does not really scream pastry tho, more vegetables! Red is everywhere and a bit overused if you ask me, while on the other hand yellow... Yellow is a joyful color, evoking sunshine and energy, optimism and intellect. These speak to me and I link them to the emotions I feel when I bake and then share the product of my efforts with loved ones. Yellow catches the eye and bring attention, it also goes well with darker colors such as brown(ies!) or black (hello :bee:). I decided to use it with parcimony tho, making the whole website as bright as the sun would probably discourage more than one... So it is used where I need to get the user's attention: the logo, buttons and links. The background of the website is a very pale version of this #FFD75E, dare I say it remembered me of an old recipes book's pages... :book: 
+The primary color is a beautiful and deep yellow (#FFD75E) :yellow_heart: which I chose because I wanted a bright color, related to pastry but still natural. If you think pastry, of course you can find cakes and icing of any possible colors thanks to food colorants but... Unless you are 6yo, food-wise you tend to be more attracted to natural colors like red, yellow or green for example. There is a reason why you don't see much blue or purple on food packaging. Green does not really scream pastry tho, more vegetables! Red is everywhere and a bit overused if you ask me, while on the other hand yellow... Yellow is a joyful color, evoking sunshine and energy, optimism and intellect. These speak to me and I link them to the emotions I feel when I bake and then share the product of my efforts with loved ones. Yellow catches the eye and bring attention, it also goes well with darker colors such as brown(ies!) or black (hello :bee:). I decided to use it with parcimony tho, making the whole website as bright as the sun would probably discourage more than one... So it is used where I need to get the user's attention: the logo, buttons, links and titles. The background of the website is a very pale version of this #FFD75E, dare I say it remembered me of an old recipes book's pages... :book: 
 
-On all pages you can find the sticky navbar and the footer. The navbar contains the brand logo, leading back to the home page as it is customary, a search bar allowing users to quickly get where and what they want (searching through products and recipes), a login/register popover form and the shopping cart. This one indicates the number of items it contains, as well as the total amount or simply states "Cart" if it is empty. On a second line the actual navigation links: Home, Subscribe, Products, Recipes, Activate my Subscription & Contact Us. 
+Typography-wise, I chose [Style Script](https://fonts.google.com/specimen/Style+Script?query=style+script) to emphasize my titles and the rest of the content is written with [Merriweather](https://fonts.google.com/specimen/Merriweather?query=merriweather).
+
+On all pages you can find the sticky navbar and the footer. The navbar contains the brand logo, leading back to the home page as it is customary, a search bar allowing users to quickly get where and what they want (searching through the products), a login/register link and the shopping cart. This one indicates the total amount or simply states "Cart" if it is empty. On a second line the actual navigation links: Home, Subscribe, Products, Recipes & Contact Us. 
 
 The footer is divided in three parts: the left part explains who's behind The Pastry Box (TPB) and the values of the company; the 2nd part lists some useful links while the 3rd and last part is itself divided in 3 sections: a newsletter subscription field, the links to TPB's socials accounts and finally a mention of credit cards accepted and payment security 💳🔐
 
-The homepage shows a hero image followed by two call-to-action images: the first links to the Subscribe page while the second leads to the box product page, to be bought individually without subscription, to be gifted. Under these two images lies yet another image, more of a quick show-off of the main selling points of the concept, while these are detailed on the right side. You also find here an input field to subscribe to the weekly newsletter, in which a recipe would be included (it helps getting these emails in the DB 😉). Finally, direct links, through images, to the best selling categories (e.g. moulds, chocolate, etc.). After a quick research on the most used screens ([W3Schools browser display statistics](https://www.w3schools.com/browsers/browsers_display.asp)), the hero image is set up to be displayed on the whole height viewport, minus the height of the navbar, thanks to CSS `calc()` function. 
-
-
+The initial wireframes can be found [here](https://github.com/LuciusVH/the_pastry_box/tree/main/docs/wireframes/). 
 
 ### User stories
 
@@ -179,16 +179,9 @@ As a store owner, I want to...
 
 ## Deployment & cloning
 
-You can find the deployed site [here](). **[LINK TO BE UPDATED]**
+You can find the deployed site [here](https://thepastrybox.herokuapp.com/).
 
-### Cloning
-
-1. 
-
-
-### Deployment
-
-1. 
+All steps for deployment, cloning, setting up can be found [here](https://github.com/LuciusVH/the_pastry_box/blob/main/docs/deployment_cloning.md).
 
 
 ## Credits
@@ -200,6 +193,7 @@ You can find the deployed site [here](). **[LINK TO BE UPDATED]**
 ### Media
 
 - The hero images are both from Unsplash, [landscape](https://unsplash.com/photos/uxCtCB_yL-M) & [portrait](https://unsplash.com/photos/Gx_vsiMRgzk).
+- Products images are from diverses websites, themselves selling these products, or sometimes from the brands' website.
 
 ### Acknowledgements
 
